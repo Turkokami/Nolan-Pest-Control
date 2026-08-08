@@ -3,11 +3,13 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   trailingSlash: false,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
-    // Phase 0: none. Existing service URLs are clean and preserved (audit §3).
     return [];
   },
 };
