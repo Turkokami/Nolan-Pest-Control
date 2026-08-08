@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60" role="img" aria-label="Nolan Pest Control">
+  <rect x="4" y="8" width="44" height="44" rx="10" fill="#2e6740"/>
+  <text x="26" y="39" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" font-weight="700" fill="#ffffff">N</text>
+  <text x="58" y="30" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#20422d">Nolan</text>
+  <text x="58" y="48" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#3f8253">Pest Control</text>
+</svg>

@@ -45,7 +45,7 @@ by one operator. Phases:
 - **Phase 1:** services expanded to 1,200–1,800 words; Residential/Commercial/Team hubs; E-E-A-T expert block; geo-link module. ✅ (see `docs/04-PHASE-1-SUMMARY.md`)
 - **Phase 2:** 14 new services (22 total) + `/services` index + 5 county hubs + 12 town pages. ✅ (see `docs/05-PHASE-2-SUMMARY.md`)
 - **Phase 3:** Pest Library (54 species) + 12-post blog launch. ✅ (see `docs/06-PHASE-3-SUMMARY.md`) — ~119 pages generated.
-- **Phase 4:** Ithaca neighborhoods + problem-aware guides + service×geo money pages.
+- **Phase 4:** 14 Ithaca neighborhoods + 26-town tier + 15 problem-aware guides + 18 service×geo money pages. ✅ (see `docs/07-PHASE-4-SUMMARY.md`) — ~181 pages generated.
 - **Phase 5:** commercial verticals + compliance + AEO/cost/FAQ + Wayne County decision.
 
 ## What's intentionally NOT here (by design)
