@@ -7,9 +7,11 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-brand-600 text-white hover:bg-brand-700",
-  secondary: "bg-white text-brand-700 ring-1 ring-inset ring-brand-200 hover:bg-brand-50",
-  ghost: "text-brand-700 hover:bg-brand-50",
+  primary:
+    "bg-gradient-to-b from-gold-300 to-gold-600 text-ink-900 font-extrabold hover:from-gold-400 hover:to-gold-700",
+  secondary:
+    "bg-transparent text-gold-600 ring-2 ring-inset ring-gold-500 hover:bg-gold-500/10",
+  ghost: "text-gold-600 hover:bg-gold-500/10",
 };
 
 export function Button({

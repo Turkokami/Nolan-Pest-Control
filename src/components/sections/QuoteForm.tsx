@@ -80,7 +80,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       </label>
       <button
         type="submit"
-        className="mt-1 rounded-lg bg-brand-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-700"
+        className="mt-1 rounded-lg bg-gradient-to-b from-gold-300 to-gold-600 px-5 py-3 text-sm font-extrabold text-ink-900 transition hover:from-gold-400 hover:to-gold-700"
       >
         Get My Free Estimate
       </button>

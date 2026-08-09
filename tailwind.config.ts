@@ -24,6 +24,28 @@ const config: Config = {
           500: "#b98a52",
           700: "#8a6236",
         },
+        // Real Nolan brand: black + gold, green-marble accent, cream text.
+        gold: {
+          300: "#e7c86b",
+          400: "#d8b455",
+          500: "#c9a24a",
+          600: "#b28a35",
+          700: "#8a6a26",
+        },
+        ink: {
+          900: "#0c0c0a", // near-black page/base
+          800: "#121210",
+          700: "#15140f", // panels
+          600: "#1b1a12",
+          line: "#2c2a1e", // hairline borders on dark
+        },
+        cream: {
+          50: "#f6efdc",
+          100: "#f4ecd6",
+          200: "#cbc3ab",
+          300: "#948c77",
+        },
+        marble: "#213a24",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],

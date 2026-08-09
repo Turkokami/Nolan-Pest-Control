@@ -41,7 +41,12 @@ export default function TeamPage() {
       <Section className="pt-6">
         <div className="max-w-prose">
           <h1 className="text-4xl font-extrabold text-brand-900">Meet the Family Behind {business.name}</h1>
-          <p className="mt-4 text-lg text-brand-900/80">{business.brandLine}</p>
+          <img
+            src="/family.jpg"
+            alt={`The ${business.name} family and service truck`}
+            className="mt-6 w-full rounded-2xl border border-brand-100 object-cover"
+          />
+          <p className="mt-6 text-lg text-brand-900/80">{business.brandLine}</p>
           <p className="mt-4 text-brand-900/80">
             We&apos;re not a franchise or a call center. We&apos;re a local, family-owned pest control
             company based in {business.hubCity}, and when you call, you reach the people who actually

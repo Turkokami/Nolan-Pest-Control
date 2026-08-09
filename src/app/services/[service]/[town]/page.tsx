@@ -8,7 +8,7 @@ import { getTown, getCounty } from "@/data/geo";
 import { countyUrl, townUrl } from "@/data/geo-content";
 import { getMoneyPage, moneyPageParams } from "@/data/money-pages";
 import { business } from "@/data/business";
-import { pageMetadata, siteUrl } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
 import { formatPhoneHref } from "@/lib/nap";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";

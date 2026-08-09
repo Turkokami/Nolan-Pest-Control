@@ -59,7 +59,7 @@ export function siteGraph() {
     "@id": ORG_ID,
     name: business.name,
     url: siteUrl,
-    logo: `${siteUrl}/logo.svg`,
+    logo: `${siteUrl}/logo.png`,
     sameAs: sameAs(),
   };
 

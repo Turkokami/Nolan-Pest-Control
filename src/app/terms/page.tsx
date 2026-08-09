@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { business } from "@/data/business";
 import { pageMetadata } from "@/lib/seo";
 import { LegalShell } from "@/components/ui/LegalShell";
@@ -21,7 +22,7 @@ export default function TermsPage() {
       <p>
         Submitting the estimate form is a request, not a binding contract. Pricing, scope, and any
         guarantee are confirmed in a written service agreement before work begins. Guarantee terms
-        are described on our <a href="/our-guarantee">Our Guarantee</a> page and in your agreement.
+        are described on our <Link href="/our-guarantee">Our Guarantee</Link> page and in your agreement.
       </p>
 
       <h2>Use of the site</h2>
@@ -33,7 +34,7 @@ export default function TermsPage() {
       <h2>Communications</h2>
       <p>
         By providing your phone number and email, you consent to be contacted about your request. SMS
-        consent is handled separately and described in our <a href="/privacy">Privacy Policy</a>.
+        consent is handled separately and described in our <Link href="/privacy">Privacy Policy</Link>.
       </p>
 
       <h2>Disclaimer &amp; limitation of liability</h2>

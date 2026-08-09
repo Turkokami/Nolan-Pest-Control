@@ -35,7 +35,12 @@ export default function AboutPage() {
       <Section className="pt-6">
         <div className="max-w-prose">
           <h1 className="text-4xl font-extrabold text-brand-900">About {business.name}</h1>
-          <p className="mt-4 text-lg text-brand-900/80">{business.brandLine}</p>
+          <img
+            src="/family.jpg"
+            alt={`The ${business.name} family with the service truck`}
+            className="mt-6 w-full rounded-2xl border border-brand-100 object-cover"
+          />
+          <p className="mt-6 text-lg text-brand-900/80">{business.brandLine}</p>
           <p className="mt-4 text-brand-900/75">
             We&apos;re a family-owned pest control company based in {business.hubCity}, serving homes
             across Tompkins, Schuyler, Chemung, Cortland and Tioga counties. We believe in honest
