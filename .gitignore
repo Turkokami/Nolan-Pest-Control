@@ -10,3 +10,7 @@
 *.tsbuildinfo
 next-env.d.ts
 npm-debug.log*
+
+# Offline type-check shim (sandbox only — must never reach the Vercel build)
+_typecheck/
+tsconfig.check.json

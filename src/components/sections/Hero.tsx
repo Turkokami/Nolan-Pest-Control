@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/Button";
 export function Hero() {
   return (
     <section
-      className="relative flex min-h-[520px] items-end bg-cover bg-center"
-      style={{ backgroundImage: "url('/hero-truck.jpg')" }}
+      className="relative flex min-h-[560px] items-end bg-cover"
+      style={{ backgroundImage: "url('/hero-truck.jpg')", backgroundPosition: "center 22%" }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-ink-900/95 via-ink-900/70 to-ink-900/40" />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:py-24">

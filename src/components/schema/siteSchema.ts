@@ -159,6 +159,25 @@ export function serviceGraph(opts: {
   };
 }
 
+/**
+ * Speakable node (AEO / voice-answer, GEO). Marks the answer-lead and FAQ regions as the
+ * passages assistants should read aloud. Selectors target the stable data-speakable hooks
+ * we render on deep pages. Emitted as a standalone WebPage augmentation keyed to the page URL.
+ */
+export function speakableGraph(opts: { path: string; cssSelectors?: string[] }) {
+  const url = `${siteUrl}${opts.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: opts.cssSelectors ?? ["[data-speakable]"],
+    },
+  };
+}
+
 /** FAQPage node (audit §9 node 6) — only when a page actually has FAQs. */
 export function faqGraph(faqs: { q: string; a: string }[]) {
   if (!faqs.length) return null;

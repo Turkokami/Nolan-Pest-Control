@@ -64,6 +64,11 @@ export function Footer() {
             <li><Link href="/pest-library" className="hover:text-gold-300">Pest Library</Link></li>
             <li><Link href="/blog" className="hover:text-gold-300">Blog</Link></li>
             <li><Link href="/guides" className="hover:text-gold-300">Pest Guides</Link></li>
+            <li><Link href="/faq" className="hover:text-gold-300">FAQ</Link></li>
+            <li><Link href="/pest-control-cost-ithaca-ny" className="hover:text-gold-300">Pricing</Link></li>
+            <li><Link href="/financing" className="hover:text-gold-300">Financing</Link></li>
+            <li><Link href="/reviews" className="hover:text-gold-300">Reviews</Link></li>
+            <li><Link href="/careers" className="hover:text-gold-300">Careers</Link></li>
             <li><Link href="/our-guarantee" className="hover:text-gold-300">Our Guarantee</Link></li>
             <li><Link href="/contact" className="hover:text-gold-300">Contact</Link></li>
           </ul>

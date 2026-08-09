@@ -7,6 +7,7 @@ import { postSlugs } from "@/data/blog";
 import { neighborhoodSlugs } from "@/data/neighborhood-content";
 import { guideSlugs } from "@/data/guides";
 import { moneyPages } from "@/data/money-pages";
+import { verticalSlugs } from "@/data/verticals";
 import { siteUrl } from "@/lib/seo";
 
 /**
@@ -26,6 +27,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/pest-library",
     "/blog",
     "/guides",
+    "/faq",
+    "/pest-control-cost-ithaca-ny",
+    "/financing",
+    "/careers",
+    "/reviews",
     "/our-guarantee",
     "/privacy",
     "/terms",
@@ -40,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const neighborhoodPaths = neighborhoodSlugs.map((s) => `/neighborhoods/${s}`);
   const guidePaths = guideSlugs.map((s) => `/guides/${s}`);
   const moneyPaths = moneyPages.map((m) => `/services/${m.serviceSlug}/${m.townSlug}`);
+  const verticalPaths = verticalSlugs.map((s) => `/commercial/${s}`);
 
   const all = [
     ...staticPaths,
@@ -51,6 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...neighborhoodPaths,
     ...guidePaths,
     ...moneyPaths,
+    ...verticalPaths,
   ];
 
   return all.map((path) => ({

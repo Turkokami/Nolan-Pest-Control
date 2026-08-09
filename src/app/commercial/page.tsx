@@ -9,6 +9,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ExpertBlock } from "@/components/sections/ExpertBlock";
 import { JsonLd } from "@/components/schema/JsonLd";
 import { pageGraph } from "@/components/schema/siteSchema";
+import { verticals } from "@/data/verticals";
 
 export const metadata: Metadata = pageMetadata({
   title: "Commercial Pest Control in Central NY",
@@ -17,15 +18,12 @@ export const metadata: Metadata = pageMetadata({
   path: "/commercial",
 });
 
-// Industries framed now; each becomes its own vertical page in Phase 5 (audit §8.8).
-const industries = [
-  { name: "Rentals & property management", angle: "Recurring protection between tenants, documented service, and fast response to unit complaints. New York landlords carry habitability responsibility for infestations — we help you meet it." },
-  { name: "Student housing", angle: "Off-campus rentals around Cornell and Ithaca College see heavy move-in/move-out turnover. We handle bed bugs, roaches, and mice with discreet, coordinated treatment across units." },
-  { name: "Restaurants & food service", angle: "Health-inspection readiness and discreet, documented pest management for kitchens, dining rooms, and storage — the difference between passing and closing." },
-  { name: "Wineries, breweries & hospitality", angle: "Seneca and Cayuga wine-trail tasting rooms, hotels, B&Bs, and short-term rentals are inspection- and bed-bug-exposed. We protect the guest experience and your reviews." },
-  { name: "Offices & retail", angle: "Clean, low-disruption service on a schedule that fits your hours, with reporting you can hand to ownership or corporate." },
-  { name: "Property portfolios", angle: "Multi-property contracts with per-door pricing and consolidated reporting for owners and managers." },
-];
+// Standalone, compliance-specific vertical pages (audit §8.8). Sourced from verticals.ts so the
+// hub and the deep pages never drift. The compliance hub is surfaced separately below.
+const sectorCards = verticals
+  .filter((v) => v.slug !== "ny-pest-control-compliance")
+  .map((v) => ({ slug: v.slug, name: v.shortName, angle: v.answerLead }));
+const complianceHub = verticals.find((v) => v.slug === "ny-pest-control-compliance");
 
 export default function CommercialPage() {
   const crumbs = [
@@ -66,19 +64,39 @@ export default function CommercialPage() {
 
       <Section className="pt-0">
         <h2 className="text-2xl font-bold text-brand-900">Industries we serve</h2>
+        <p className="mt-2 text-brand-900/75">
+          Each sector has its own dedicated page with the compliance detail that setting requires —
+          from NYS Sanitary Code Part 14 for food service to Real Property Law §235-b habitability
+          for rentals. Pick yours below.
+        </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {industries.map((ind) => (
-            <div key={ind.name} className="rounded-2xl border border-brand-100 bg-white p-6">
-              <h3 className="font-semibold text-brand-800">{ind.name}</h3>
-              <p className="mt-2 text-sm text-brand-900/75">{ind.angle}</p>
-            </div>
+          {sectorCards.map((ind) => (
+            <Link
+              key={ind.slug}
+              href={`/commercial/${ind.slug}`}
+              className="group rounded-2xl border border-brand-100 bg-white p-6 transition hover:border-gold-400 hover:shadow-sm"
+            >
+              <h3 className="flex items-center justify-between gap-3 font-semibold text-brand-800">
+                {ind.name}
+                <span aria-hidden className="text-gold-600 transition group-hover:translate-x-0.5">→</span>
+              </h3>
+              <p className="mt-2 line-clamp-3 text-sm text-brand-900/75">{ind.angle}</p>
+            </Link>
           ))}
         </div>
-        <p className="mt-6 text-sm text-brand-900/70">
-          Detailed, compliance-specific pages for each industry — including NYS Sanitary Code Part 14
-          for food service and Real Property Law §235-b for rentals — are in development. Need one now?{" "}
-          <Link href="/contact" className="font-semibold text-brand-600 underline">Contact us</Link>.
-        </p>
+
+        {complianceHub && (
+          <Link
+            href={`/commercial/${complianceHub.slug}`}
+            className="mt-4 block rounded-2xl border border-gold-300 bg-gold-50/40 p-6 transition hover:border-gold-500"
+          >
+            <h3 className="flex items-center justify-between gap-3 font-bold text-brand-900">
+              New York pest control compliance — the master overview
+              <span aria-hidden className="text-gold-600">→</span>
+            </h3>
+            <p className="mt-2 text-sm text-brand-900/75">{complianceHub.answerLead}</p>
+          </Link>
+        )}
       </Section>
 
       <Section className="pt-0">
