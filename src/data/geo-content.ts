@@ -40,7 +40,7 @@ export const countyContent: Record<string, CountyContent> = {
     ],
     housing: [
       "Tompkins housing runs from pre-war and Victorian homes near downtown and the campuses, to mid-century and newer subdivisions in Lansing and Cayuga Heights, to rural farmhouses on the county's edges. Older homes mean more entry points and more moisture-related pests; rentals mean recurring, documented service and landlord habitability obligations under New York's Real Property Law §235-b.",
-      "As the county where we're based, Tompkins is where our local knowledge runs deepest. We know which Ithaca neighborhoods see the worst bed-bug pressure, why the older homes on the hills get carpenter ants, and how the fall overwintering invasion moves through the rural towns. That block-by-block familiarity — paired with fast response times and family-owned service — is what lets us out-specify the national franchises whose location pages are written for every town and none in particular.",
+      "As the county where we're based, Tompkins is where our local knowledge runs deepest. We know which Ithaca neighborhoods see the worst bed-bug pressure, why the older homes on the hills get carpenter ants, and how the fall overwintering invasion moves through the rural towns. That block-by-block familiarity is the practical difference between us and a national outfit dispatching from out of the area: we already know what your house is likely doing before we get there, and we can usually get there today.",
     ],
     seasonal:
       "Fall is the pivotal season here: rodents and overwintering pests move indoors, and it's the best time to seal and treat. Spring brings carpenter ants and the student move-out bed-bug spread; summer brings wasps, mosquitoes, and ticks.",
@@ -106,7 +106,7 @@ export const countyContent: Record<string, CountyContent> = {
   cortland: {
     slug: "cortland",
     intro: [
-      "Cortland County combines a college town — SUNY Cortland — with historic villages and dairy-country farmland. It's a competitive sub-market (the region's strongest independent is based here), which pushes us to bring our best: deeper content, specialized services, and genuinely local knowledge that a franchise template can't match.",
+      "Cortland County combines a college town — SUNY Cortland — with historic villages and dairy-country farmland, and the pest work changes completely as you move between them. The city runs on old housing and student rentals; a few miles out it is cluster flies off the hayfields and mice moving in from the barn. We work both, and we treat them as the different jobs they are.",
       "We serve Cortland, the historic village of Homer, McGraw, and the surrounding rural areas with full residential and commercial pest control.",
     ],
     pressure: [
@@ -115,7 +115,7 @@ export const countyContent: Record<string, CountyContent> = {
     ],
     housing: [
       "Housing spans SUNY Cortland rentals and older city homes, the historic housing stock of Homer, small-village homes in McGraw, and rural farmhouses across the county. College rentals mean turnover and recurring service; rural and older homes mean rodents, carpenter ants, and overwintering pests.",
-      "Cortland is the most competitive sub-market in our service area — the region's strongest independent operator is based here — and we don't shy away from it. We compete the way the audit says an independent should: not by trying to out-advertise anyone, but by out-specifying them. Deeper service information, dedicated pages for cluster flies and carpenter ants, honest local pricing guidance, and genuine knowledge of the county's college rentals and dairy-country farms give Cortland residents a real, content-rich alternative.",
+      "Cortland County has good pest control companies in it, and we are glad to be judged alongside them. What we offer is a family-owned operation that tells you plainly what is wrong, what it will cost, and what will actually fix it — including when the answer is a repair rather than a treatment. We know the county's two distinct halves well: the college rentals and century-old housing in the city, and the dairy-country farms and cluster fly pressure that start a few miles outside it.",
     ],
     seasonal:
       "Fall is dominant — cluster flies and overwintering pests pour in from the farmland, and rodents seek warmth. Spring brings carpenter ants and college move-out turnover.",
@@ -480,6 +480,24 @@ export const townContent: Record<string, TownContent> = {
     ],
     relatedServices: ["general-pest", "commercial-pest-control", "rodent-control"],
   },
+  cortland: {
+    slug: "cortland",
+    intro: [
+      "Cortland is the seat of Cortland County and, after Ithaca, the most pest-active small city in our service area. SUNY Cortland puts several thousand students into off-campus rentals within walking distance of campus and downtown, and the housing they rent is genuinely old — 61% of the city's homes were built before 1939, and roughly three quarters date from the 1950s or earlier. Dense rentals inside century-old wood-frame houses is the exact combination that keeps a pest company busy.",
+    ],
+    local: [
+      "The student rental market drives the city's hardest problems. Late-19th and early-20th-century two-story wood-frame houses — the typical Cortland house — get carved into multi-bedroom rentals, and once bed bugs, roaches, or mice are in one unit of a shared-wall building they rarely stay there. The August and May move cycles move infested furniture in and out on a schedule you can set a calendar by. For landlords, New York's Warranty of Habitability (RPL §235-b) makes prompt, documented treatment an obligation rather than a favor.",
+      "Housing that old comes with fieldstone and rubble foundations, balloon framing, and decades of settling, and every one of those is a rodent highway. Mice do not chew their way into a Cortland house so much as walk in through gaps that have been there since before anyone living owned the place. That is why trapping alone tends to fail here and exclusion — actually sealing the sill, foundation, and roofline — is what ends the yearly reinfestation.",
+      "Outside the city line, Cortland County is dairy and field country, and that changes the pest mix within a few miles. Cluster flies come off the surrounding pasture and lawn every late summer to overwinter in wall voids, and stink bugs and lady beetles mass on south-facing walls each October. A timed exterior barrier in late summer is worth more here than any amount of treatment once they are already inside the walls.",
+    ],
+    faqs: [
+      { q: "Do you serve SUNY Cortland off-campus rentals?", a: "Yes. Student rentals near campus and downtown are a core part of our Cortland work. We treat bed bugs, roaches, and mice discreetly, coordinate across connected units so the problem does not simply move next door, and provide the documentation landlords and tenants need." },
+      { q: "Why does my Cortland house get mice every single fall?", a: "Because of its age. Most of the city's housing predates 1939, and those fieldstone foundations and settled sills are full of gaps a mouse can use. Trapping clears the ones inside; exclusion — sealing the entry points — is what stops next year's batch." },
+      { q: "What are the small flies covering my windows in October?", a: "Almost certainly cluster flies. They breed in the soil of the surrounding fields, then move to the sunny side of the house in late summer to overwinter in the wall voids. The fix is a timed exterior treatment before they get in, not a spray once they are indoors." },
+      { q: "I am a landlord with several Cortland properties. Can you handle all of them?", a: "Yes. We work with landlords across the city on scheduled service and turnover treatment, with records you can keep on file. Coordinated treatment across a portfolio is far cheaper than chasing the same infestation from unit to unit." },
+    ],
+    relatedServices: ["bed-bug", "rodent-control", "rodent-exclusion-sealing", "cluster-fly-control"],
+  },
   homer: {
     slug: "homer",
     intro: [
@@ -487,7 +505,7 @@ export const townContent: Record<string, TownContent> = {
     ],
     local: [
       "Homer's historic homes bring carpenter ants in moisture-prone older wood and mice pushing indoors each fall, plus heavy overwintering-pest pressure from surrounding dairy country.",
-      "As the base of the region's strongest independent competitor, Homer is a market where our depth of service and specialized pest pages give residents a real, content-rich alternative.",
+      "Homer sits in the middle of Cortland County's dairy and field country, which is why cluster flies and fall rodent pressure are the village's two most reliable problems. Both are very manageable when the timing is right — the exterior work that stops cluster flies has to happen in late summer, before they reach the walls.",
     ],
     faqs: [
       { q: "Do you serve Homer?", a: "Yes. Homer and the surrounding Cortland County area are within our service area, with the full range of residential and commercial pest services." },

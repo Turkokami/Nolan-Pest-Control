@@ -9,6 +9,7 @@ import {
   townUrl,
 } from "@/data/geo-content";
 import { neighborhoodSlugs } from "@/data/neighborhood-content";
+import { getTownDeep } from "@/data/town-content-deep";
 import { coreServices } from "@/data/services";
 import { business } from "@/data/business";
 import { pageMetadata, siteUrl } from "@/lib/seo";
@@ -54,6 +55,7 @@ export default async function TownPage({
   const c = t ? getCounty(t.county) : undefined;
   if (!t || !content || !c) notFound();
 
+  const deep = getTownDeep(town); // depth layer (priority towns)
   const path = townUrl(t.slug);
   const crumbs = [
     { name: "Home", path: "/" },
@@ -61,7 +63,8 @@ export default async function TownPage({
     { name: c.name, path: countyUrl(c.slug) },
     { name: t.name, path },
   ];
-  const faq = faqGraph(content.faqs);
+  const faqs = [...content.faqs, ...(deep?.faqs ?? [])];
+  const faq = faqGraph(faqs);
 
   const placeSchema = {
     "@context": "https://schema.org",
@@ -113,6 +116,39 @@ export default async function TownPage({
           ))}
         </div>
       </Section>
+
+      {/* Depth layer (priority towns): structure -> calendar -> approach.
+          Additive — renders only when a deep entry exists for this town. */}
+      {deep && (
+        <>
+          <Section className="pt-0">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.structure.title}</h2>
+              {deep.structure.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+          </Section>
+
+          <Section className="bg-brand-50 py-12">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.calendar.title}</h2>
+              {deep.calendar.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+          </Section>
+
+          <Section className="pt-12">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.approach.title}</h2>
+              {deep.approach.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+          </Section>
+        </>
+      )}
 
       {/* Known pests */}
       {t.knownPests.length > 0 && (
@@ -176,11 +212,11 @@ export default async function TownPage({
       </Section>
 
       {/* FAQ */}
-      {content.faqs.length > 0 && (
+      {faqs.length > 0 && (
         <Section className="bg-brand-50 py-12">
           <h2 className="text-2xl font-bold text-brand-900">{t.name} pest control — FAQs</h2>
           <div className="mt-6 max-w-3xl">
-            <FaqAccordion faqs={content.faqs} />
+            <FaqAccordion faqs={faqs} />
           </div>
         </Section>
       )}
