@@ -9,10 +9,13 @@ import { Button } from "@/components/ui/Button";
 export function Hero() {
   return (
     <section
-      className="relative flex min-h-[560px] items-end bg-cover"
-      style={{ backgroundImage: "url('/hero-truck.jpg')", backgroundPosition: "center 22%" }}
+      className="relative flex min-h-[620px] items-end bg-cover"
+      style={{ backgroundImage: "url('/hero-truck.jpg')", backgroundPosition: "center 40%" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-ink-900/95 via-ink-900/70 to-ink-900/40" />
+      {/* Lighter gradient so the truck's "Nolan Pest Control" wrap stays visible while the headline
+          keeps enough dark backing on the left to read. Crop (center 40% + taller band) keeps both
+          the owner's face and the door lettering in frame across desktop widths. */}
+      <div className="absolute inset-0 bg-gradient-to-r from-ink-900/90 via-ink-900/50 to-ink-900/20" />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
         <p className="text-sm font-bold uppercase tracking-[0.14em] text-gold-400">
           Ithaca &amp; Central New York

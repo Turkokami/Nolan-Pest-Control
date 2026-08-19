@@ -4,6 +4,7 @@ import Link from "next/link";
 import { existingServices, getService } from "@/data/services";
 import { serviceContent } from "@/data/service-content";
 import { serviceContentPhase2 } from "@/data/service-content-phase2";
+import { getServiceDeep } from "@/data/service-content-deep";
 import { pestsForService } from "@/data/pests";
 import { moneyPagesForService } from "@/data/money-pages";
 import { getTown } from "@/data/geo";
@@ -50,6 +51,7 @@ export default async function ServicePage({
   if (!s || s.status !== "existing") notFound();
 
   const content = serviceContent[s.slug] ?? serviceContentPhase2[s.slug];
+  const deep = getServiceDeep(s.slug); // Phase 6 depth layer (present for the 8 core services)
   const path = `/services/${s.slug}`;
 
   // Related services: same category first, then fill, capped so the page stays tidy.
@@ -65,7 +67,8 @@ export default async function ServicePage({
     { name: s.shortName, path },
   ];
   // Prefer the full 8-question set from content; fall back to metadata faqs.
-  const faqs = content?.faqs ?? s.faqs;
+  // Then append the deep-layer FAQs (core services) so both the accordion and FAQPage schema grow.
+  const faqs = [...(content?.faqs ?? s.faqs), ...(deep?.faqs ?? [])];
   const faq = faqGraph(faqs);
 
   return (
@@ -206,6 +209,50 @@ export default async function ServicePage({
                   ))}
                 </ul>
               </div>
+            </div>
+          </Section>
+        </>
+      )}
+
+      {/* Deep authority layer (core services): local context, health/property risk, why professional.
+          Additive — renders only when a deep entry exists for this slug. */}
+      {deep && (
+        <>
+          {deep.identification && (
+            <Section className="pt-0">
+              <div className="max-w-prose">
+                <h2 className="text-2xl font-bold text-brand-900">{deep.identification.title}</h2>
+                {deep.identification.paragraphs.map((p, i) => (
+                  <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+                ))}
+              </div>
+            </Section>
+          )}
+
+          <Section className="pt-0">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.localContext.title}</h2>
+              {deep.localContext.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+          </Section>
+
+          <Section className="bg-brand-50 py-12">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.healthRisks.title}</h2>
+              {deep.healthRisks.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+          </Section>
+
+          <Section className="pt-12">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.whyProfessional.title}</h2>
+              {deep.whyProfessional.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
             </div>
           </Section>
         </>

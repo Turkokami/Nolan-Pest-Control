@@ -9,6 +9,7 @@ import {
   townUrl,
   priorityTownSlugs,
 } from "@/data/geo-content";
+import { getCountyDeep } from "@/data/geo-content-deep";
 import { coreServices } from "@/data/services";
 import { business } from "@/data/business";
 import { pageMetadata, siteUrl } from "@/lib/seo";
@@ -61,13 +62,15 @@ export default async function CountyPage({
   const content = getCountyContent(slug);
   if (!c || !content) notFound();
 
+  const deep = getCountyDeep(slug); // Phase 6 depth layer (5 active counties)
   const path = countyUrl(c.slug);
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "Service Areas", path: "/service-areas" },
     { name: c.name, path },
   ];
-  const faq = faqGraph(content.faqs);
+  const faqs = [...content.faqs, ...(deep?.faqs ?? [])];
+  const faq = faqGraph(faqs);
 
   // AdministrativeArea Place node tied to the LocalBusiness.
   const placeSchema = {
@@ -132,6 +135,26 @@ export default async function CountyPage({
         </div>
       </Section>
 
+      {/* Deep authority layer (per county): what drives pressure + who we serve */}
+      {deep && (
+        <Section className="py-12">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.knownFor.title}</h2>
+              {deep.knownFor.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.landscape.title}</h2>
+              {deep.landscape.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
+
       {/* Towns covered */}
       <Section className="py-12">
         <h2 className="text-2xl font-bold text-brand-900">Towns we serve in {c.name}</h2>
@@ -179,13 +202,13 @@ export default async function CountyPage({
       </Section>
 
       {/* FAQ */}
-      {content.faqs.length > 0 && (
+      {faqs.length > 0 && (
         <Section className="bg-brand-50 py-12">
           <h2 className="text-2xl font-bold text-brand-900">
             {c.name} pest control — FAQs
           </h2>
           <div className="mt-6 max-w-3xl">
-            <FaqAccordion faqs={content.faqs} />
+            <FaqAccordion faqs={faqs} />
           </div>
         </Section>
       )}
