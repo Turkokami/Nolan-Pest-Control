@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ithacaNeighborhoods } from "@/data/geo";
 import { getNeighborhoodContent, neighborhoodSlugs } from "@/data/neighborhood-content";
 import { countyUrl, townUrl } from "@/data/geo-content";
+import { getNeighborhoodDeep } from "@/data/neighborhood-content-deep";
 import { getService } from "@/data/services";
 import { business } from "@/data/business";
 import { pageMetadata, siteUrl } from "@/lib/seo";
@@ -55,7 +56,9 @@ export default async function NeighborhoodPage({
     { name: "Ithaca", path: townUrl("ithaca") },
     { name: n.name, path },
   ];
-  const faq = faqGraph(content.faqs);
+  const deep = getNeighborhoodDeep(hood); // depth layer
+  const faqs = [...content.faqs, ...(deep?.faqs ?? [])];
+  const faq = faqGraph(faqs);
   const related = content.relatedServices.map((s) => getService(s)).filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   const placeSchema = {
@@ -98,6 +101,29 @@ export default async function NeighborhoodPage({
         </div>
       </Section>
 
+      {/* Depth layer: stock -> approach. Additive; renders only when an entry exists. */}
+      {deep && (
+        <>
+          <Section className="pt-0">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.stock.title}</h2>
+              {deep.stock.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+          </Section>
+
+          <Section className="bg-brand-50 py-12">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.approach.title}</h2>
+              {deep.approach.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+              ))}
+            </div>
+          </Section>
+        </>
+      )}
+
       {related.length > 0 && (
         <Section className="pt-0">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-brand-600">
@@ -114,10 +140,10 @@ export default async function NeighborhoodPage({
         </Section>
       )}
 
-      {content.faqs.length > 0 && (
+      {faqs.length > 0 && (
         <Section className="bg-brand-50 py-12">
           <h2 className="text-2xl font-bold text-brand-900">{n.name} pest control — FAQs</h2>
-          <div className="mt-6 max-w-3xl"><FaqAccordion faqs={content.faqs} /></div>
+          <div className="mt-6 max-w-3xl"><FaqAccordion faqs={faqs} /></div>
         </Section>
       )}
 
