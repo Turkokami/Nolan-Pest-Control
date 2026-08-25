@@ -19,7 +19,11 @@ export default function AboutPage() {
     { name: "About", path: "/about" },
   ];
   const hasOwner = Boolean(business.owner.name);
-  const hasCreds = Boolean(business.credentials.nysdecBusinessReg);
+  // Render whichever credentials we actually have. Gating the applicator cert behind the
+  // business registration hid a real, supplied credential behind a missing one.
+  const hasCreds = Boolean(
+    business.credentials.nysdecBusinessReg || business.credentials.applicatorCert,
+  );
 
   return (
     <>
@@ -64,9 +68,14 @@ export default function AboutPage() {
             <ul className="mt-4 space-y-1 text-sm text-brand-900/80">
               {hasCreds ? (
                 <>
-                  <li>NYSDEC Pesticide Business Registration: <strong>{business.credentials.nysdecBusinessReg}</strong></li>
+                  {business.credentials.nysdecBusinessReg && (
+                    <li>NYSDEC Pesticide Business Registration: <strong>{business.credentials.nysdecBusinessReg}</strong></li>
+                  )}
                   {business.credentials.applicatorCert && (
-                    <li>Certified Applicator ID: <strong>{business.credentials.applicatorCert}</strong></li>
+                    <li>
+                      Certified Applicator: <strong>{business.owner.name}</strong>, ID{" "}
+                      <strong>{business.credentials.applicatorCert}</strong>
+                    </li>
                   )}
                 </>
               ) : (

@@ -32,7 +32,7 @@ export const business = {
   phone: "(607) 269-6218",
   phoneE164: "+16072696218",
   emailCurrent: "nolanpest@outlook.com", // legacy — being retired (Defect #7)
-  email: "info@nolanpestcontrol.com", // target; migrate mailbox in Phase 0
+  email: "nolanpestny@gmail.com", // confirmed by owner 2026-08-25; info@ mailbox is NOT live
 
   url: "https://nolanpestcontrol.com",
 
@@ -66,15 +66,15 @@ export const business = {
 
   // Social — used as schema `sameAs`
   social: {
-    facebook: "https://www.facebook.com/", // PENDING exact page URL (titled "Nolan Pest Control | Ithaca NY")
+    facebook: "https://www.facebook.com/NolanPestControl", // confirmed by owner 2026-08-25
     instagram: "https://www.instagram.com/", // PENDING exact handle
     gbp: "", // PENDING — Google Business Profile claim (Phase 0)
   },
 
   // Credentials / E-E-A-T — PENDING client inputs (Defect #9)
   credentials: {
-    nysdecBusinessReg: "", // NYSDEC pesticide business registration number — publish once supplied
-    applicatorCert: "", // certified applicator ID
+    nysdecBusinessReg: "", // STILL PENDING — owner supplied the applicator cert, not the business registration
+    applicatorCert: "c8902993", // Matthew Nolan, confirmed by owner 2026-08-25
     insured: true,
     npmaMember: false, // set true if/when joined (audit §11 backlinks)
     nyspmaMember: false,
@@ -82,16 +82,17 @@ export const business = {
 
   owner: {
     // PENDING — required for Person schema node + About/Team (Defect #9)
-    name: "", // e.g. "Nolan [Last Name]"
+    name: "Matthew Nolan", // confirmed by owner 2026-08-25
     role: "Owner & Certified Applicator",
-    bio: "",
+    bio: "", // STILL PENDING — owner left the bio field blank
     photo: "", // /public path when supplied
   },
 
   // Founding / trust stats — replace filler stat strip (Defect #15) once real numbers exist
   stats: {
-    yearFounded: 0, // PENDING
-    homesProtected: 0, // PENDING
+    yearFounded: 2026, // confirmed by owner 2026-08-25
+    homesProtected: 0, // STILL PENDING — owner left blank
+    yearsInTrade: 9, // Matthew Nolan, years in pest control (NOT the age of the business)
     countiesServed: 5, // Tompkins, Schuyler, Chemung, Cortland, Tioga (Option A)
     servicesOffered: 8, // Phase 0; grows to 22
   },
