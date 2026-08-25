@@ -50,8 +50,8 @@ export const faqGroups: FaqGroup[] = [
         a: "No. We quote the job before we do it, and we don't lock you into contracts with surprise cancellation penalties. If our pricing changes for added scope, you hear about it first.",
       },
       {
-        q: "Do you offer payment plans for larger jobs?",
-        a: "For bigger exclusion, wildlife, or whole-home jobs we can talk through options so the cost is manageable — see our financing page. We'd rather help you protect your home than have cost stop you from fixing a real problem.",
+        q: "What payment methods do you take?",
+        a: "Credit card and check. Estimates are free, and we quote the job before we do it, so you know the number before any work starts.",
       },
     ],
   },

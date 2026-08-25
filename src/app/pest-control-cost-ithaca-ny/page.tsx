@@ -54,7 +54,7 @@ export default function CostPage() {
     { q: "Why can't you give me an exact price over the phone?", a: "For many common pests we actually can quote right on the phone. For wildlife, exclusion, bed bugs, and commercial work, a quick look lets us price the real scope so the number we give you is the number you pay — no lowball-then-upsell." },
     { q: "Do you charge for estimates?", a: "No. Estimates are free, and there's no obligation. We'd rather earn your trust with honest pricing than pressure you into anything." },
     { q: "Does a bigger or older home cost more?", a: "Generally yes — more square footage, more floors, and more entry points mean more labor and materials, and older homes often need more sealing work. We price the home in front of us, not a generic average." },
-    { q: "Do you offer any way to spread out the cost of a large job?", a: "For larger exclusion, wildlife, and whole-home jobs we can talk through options so cost doesn't stop you from fixing a real problem — see our financing page." },
+    { q: "How do you take payment?", a: "Credit card and check. Estimates are free, and we quote the job before we start it, so the number you agree to is the number you pay unless the scope genuinely changes — in which case you hear about it first." },
   ];
 
   const faq = faqGraph(faqs);
@@ -142,7 +142,6 @@ export default function CostPage() {
           <p className="mt-6 text-sm text-brand-900/70">
             Related:{" "}
             <Link href="/our-guarantee" className="font-semibold text-brand-600 underline">our guarantee</Link>,{" "}
-            <Link href="/financing" className="font-semibold text-brand-600 underline">financing options</Link>, and{" "}
             <Link href="/services" className="font-semibold text-brand-600 underline">all services</Link>.
           </p>
         </div>

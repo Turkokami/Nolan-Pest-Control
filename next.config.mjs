@@ -12,8 +12,12 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
-    // Phase 0: none. Existing service URLs are clean and preserved (audit §3).
-    return [];
+    return [
+      // /financing retired 2026-08-25 — the owner confirmed he does not offer
+      // financing or payment plans. The page was live, so send it to pricing
+      // rather than 404 anyone who has the link.
+      { source: "/financing", destination: "/pest-control-cost-ithaca-ny", permanent: true },
+    ];
   },
 };
 

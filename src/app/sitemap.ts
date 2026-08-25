@@ -29,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guides",
     "/faq",
     "/pest-control-cost-ithaca-ny",
-    "/financing",
     "/careers",
     "/reviews",
     "/our-guarantee",
