@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { pests, getPest, pestsInCluster, pestClusters } from "@/data/pests";
+import { getPestDeep } from "@/data/pest-content-deep";
 import { getService } from "@/data/services";
 import { business } from "@/data/business";
 import { pageMetadata, siteUrl } from "@/lib/seo";
@@ -9,8 +10,9 @@ import { formatPhoneHref } from "@/lib/nap";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { JsonLd } from "@/components/schema/JsonLd";
-import { pageGraph } from "@/components/schema/siteSchema";
+import { pageGraph, faqGraph } from "@/components/schema/siteSchema";
 
 export function generateStaticParams() {
   return pests.map((p) => ({ species: p.slug }));
@@ -59,6 +61,8 @@ export default async function SpeciesPage({
   const p = getPest(species);
   if (!p) notFound();
 
+  const deep = getPestDeep(species); // depth layer
+  const faq = faqGraph(deep?.faqs ?? []);
   const service = getService(p.parentServiceSlug);
   const cluster = pestClusters.find((c) => c.key === p.cluster);
   const related = pestsInCluster(p.cluster).filter((o) => o.slug !== p.slug).slice(0, 6);
@@ -86,6 +90,7 @@ export default async function SpeciesPage({
         data={pageGraph({ path, name: p.commonName, description: p.identification, breadcrumbs: crumbs })}
       />
       <JsonLd data={articleSchema} />
+      {faq && <JsonLd data={faq} />}
       <Breadcrumbs items={crumbs} />
 
       <Section className="pt-6">
@@ -109,6 +114,29 @@ export default async function SpeciesPage({
         </div>
       </Section>
 
+      {/* Depth layer: tellApart -> inCNY. Additive; renders only when an entry exists. */}
+      {deep && (
+        <>
+          <Section className="pt-0">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.tellApart.title}</h2>
+              {deep.tellApart.paragraphs.map((t, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{t}</p>
+              ))}
+            </div>
+          </Section>
+
+          <Section className="bg-brand-50 py-12">
+            <div className="max-w-prose">
+              <h2 className="text-2xl font-bold text-brand-900">{deep.inCNY.title}</h2>
+              {deep.inCNY.paragraphs.map((t, i) => (
+                <p key={i} className="mt-4 text-brand-900/80">{t}</p>
+              ))}
+            </div>
+          </Section>
+        </>
+      )}
+
       {/* Parent service CTA */}
       {service && (
         <Section className="pt-0">
@@ -123,6 +151,15 @@ export default async function SpeciesPage({
               <Button href={`/services/${service.slug}`}>See {service.shortName} service</Button>
               <Button href={formatPhoneHref()} variant="secondary">Call {business.phone}</Button>
             </div>
+          </div>
+        </Section>
+      )}
+
+      {deep && deep.faqs.length > 0 && (
+        <Section className="pt-0">
+          <h2 className="text-2xl font-bold text-brand-900">{p.commonName} — common questions</h2>
+          <div className="mt-6 max-w-3xl">
+            <FaqAccordion faqs={deep.faqs} />
           </div>
         </Section>
       )}
