@@ -5,7 +5,7 @@ import { Hero } from "@/components/sections/Hero";
 import { ValueProps } from "@/components/sections/ValueProps";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { ServiceAreaModule } from "@/components/sections/ServiceAreaModule";
-import { ReviewsComingSoon } from "@/components/sections/ReviewsComingSoon";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { Section } from "@/components/ui/Section";
 
@@ -47,7 +47,7 @@ export default function HomePage() {
 
       <ServiceGrid />
       <ServiceAreaModule />
-      <ReviewsComingSoon />
+      <GoogleReviews />
 
       {/* Full quote form anchor for the sticky CTA + footer links */}
       <Section id="quote" className="bg-ink-900">

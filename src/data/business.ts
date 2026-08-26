@@ -68,7 +68,7 @@ export const business = {
   social: {
     facebook: "https://www.facebook.com/NolanPestControl", // confirmed by owner 2026-08-25
     instagram: "https://www.instagram.com/", // PENDING exact handle
-    gbp: "", // PENDING — Google Business Profile claim (Phase 0)
+    gbp: "https://share.google/y5Km0aijLZ0onYUox", // confirmed 2026-08-26 — see note in `reviews`
   },
 
   // Credentials / E-E-A-T — PENDING client inputs (Defect #9)
@@ -86,6 +86,26 @@ export const business = {
     role: "Owner & Certified Applicator",
     bio: "", // STILL PENDING — owner left the bio field blank
     photo: "", // /public path when supplied
+  },
+
+  /**
+   * Google reviews — verified from the live profile on 2026-08-26 (kgmid /g/11z6zqcdv_).
+   *
+   * These are DISPLAY FACTS ONLY. We deliberately emit NO Review or AggregateRating schema
+   * anywhere on this site. Marking up reviews collected on a third-party platform as our own
+   * aggregate rating is against Google's structured data policy for self-serving reviews and
+   * risks a manual action — which is precisely the kind of exposure the fabricated-testimonial
+   * removal (Defect #1) was avoiding. Google hosts the reviews; we link to them.
+   *
+   * The count goes stale by design. Update it, or drop to just the link, when it drifts.
+   *
+   * profileUrl is the owner-supplied share link. Replace it with the canonical Place ID link
+   * from the GBP dashboard when available — a shortener is a weak thing to depend on.
+   */
+  reviews: {
+    googleRating: 5.0,
+    googleCount: 10,
+    confirmedOn: "2026-08-26",
   },
 
   // Founding / trust stats — replace filler stat strip (Defect #15) once real numbers exist

@@ -38,9 +38,12 @@ export default function ReviewsPage() {
         <div className="mx-auto max-w-prose">
           <h1 className="text-4xl font-extrabold text-brand-900">Reviews</h1>
           <p className="mt-4 text-lg text-brand-900/85">
-            We&apos;re a growing family business, and we&apos;re building our reputation the honest
-            way — one job at a time. We only ever publish real, verified reviews from actual
-            customers. No stock quotes, no invented five-stars.
+            {business.name} is rated{" "}
+            <strong>{business.reviews.googleRating.toFixed(1)} out of 5</strong> from{" "}
+            <strong>{business.reviews.googleCount} Google reviews</strong>. Every one is a real,
+            verified review from an actual customer — no stock quotes, no invented five-stars. The
+            profile itself is the source of truth, so read them there rather than taking our word
+            for it.
           </p>
 
           {gbp ? (
