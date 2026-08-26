@@ -130,14 +130,16 @@ export default async function TownPage({
             </div>
           </Section>
 
-          <Section className="bg-brand-50 py-12">
-            <div className="max-w-prose">
-              <h2 className="text-2xl font-bold text-brand-900">{deep.calendar.title}</h2>
-              {deep.calendar.paragraphs.map((p, i) => (
-                <p key={i} className="mt-4 text-brand-900/80">{p}</p>
-              ))}
-            </div>
-          </Section>
+          {deep.calendar && (
+            <Section className="bg-brand-50 py-12">
+              <div className="max-w-prose">
+                <h2 className="text-2xl font-bold text-brand-900">{deep.calendar.title}</h2>
+                {deep.calendar.paragraphs.map((p, i) => (
+                  <p key={i} className="mt-4 text-brand-900/80">{p}</p>
+                ))}
+              </div>
+            </Section>
+          )}
 
           <Section className="pt-12">
             <div className="max-w-prose">

@@ -27,7 +27,9 @@ export interface TownBlock {
 
 export interface TownDeep {
   structure: TownBlock;
-  calendar: TownBlock;
+  /** Optional: the priority towns carry a full seasonal block. The smaller villages do not,
+   *  because padding a short entry to match a long one is exactly how a page becomes spun. */
+  calendar?: TownBlock;
   approach: TownBlock;
   faqs: { q: string; a: string }[];
 }
@@ -283,6 +285,394 @@ export const townContentDeep: Record<string, TownDeep> = {
       { q: "I live on a farm. Is it realistic to keep mice out of the house?", a: "Yes, though the work is site-wide rather than house-only. If the barn or equipment shed is holding a population, the house will keep getting visitors regardless of how well it is sealed. Sealing the house properly and reducing the reservoir in the outbuildings is what makes the difference." },
       { q: "The cluster flies here are unbelievable in September. Can anything actually help?", a: "Yes — a timed exterior treatment on the sunny walls in late summer, before they gather. Next to open hayfield you will not get to zero, and anyone promising that is overselling, but the difference between treated and untreated on a rural Dryden property is dramatic." },
       { q: "There are bats in my barn. When can they be removed?", a: "Not during the summer maternity season, when flightless young would be sealed in if the adults were excluded. New York restricts the work for that reason. We can inspect any time and plan the exclusion for the window when it is both legal and humane." },
+    ],
+  },
+  // ============================================================== TRUMANSBURG
+  trumansburg: {
+    structure: {
+      title: "A compact village on the high ground above the lake",
+      paragraphs: [
+        "Trumansburg is a walkable village of older homes on the high ground west of Cayuga Lake, with a genuine village center rather than a strip, and it drops quickly into rural farmland and the wooded ravines around Taughannock Falls in every direction. That combination — dense village core, deep gorge, open farmland — puts three different pest environments within about a mile of each other.",
+        "The village housing runs to older wood-frame homes on small lots, close enough together that rodent pressure is shared along a street rather than isolated to a house. Outside the village line, properties get larger, older, and more likely to include a barn or outbuilding.",
+      ],
+    },
+    approach: {
+      title: "Which Trumansburg are you in?",
+      paragraphs: [
+        "It genuinely matters. A village house needs methodical exclusion at the foundation, sill, and porch junctions, and benefits from neighbors doing the same. A property out toward the gorge or the farmland needs the rural approach: exterior treatment timed to late summer for cluster flies coming off the fields, wildlife exclusion where mature canopy reaches the roof, and attention to outbuildings that can hold a rodent population indefinitely.",
+        "The ravines around Taughannock bring wildlife right up against residential property, so squirrels and bats reaching a roofline from overhanging limbs is a routine rather than unusual event on the wooded edges.",
+      ],
+    },
+    faqs: [
+      { q: "I am in the village, not out in the country. Do I still get cluster flies?", a: "Less than a house against open hayfield, but yes — Trumansburg's village core is close enough to farmland that the pressure carries. The treatment is the same either way: exterior, on the sunny south and west walls, timed for late summer before they gather." },
+      { q: "We back onto the woods near the gorge. What should we watch for?", a: "Wildlife reaching the roof. Where mature canopy overhangs a roofline, squirrels and bats have direct access to soffits and attics. Trimming those limbs back and sealing the roof edge does more than anything done after something is already inside." },
+    ],
+  },
+
+  // ================================================================= NEWFIELD
+  newfield: {
+    structure: {
+      title: "Rural, wooded, and up against a lot of state land",
+      paragraphs: [
+        "Newfield is one of the more rural towns in Tompkins County, with old farmhouses, wooded lots, and a village core built around the historic covered bridge. What shapes its pest work more than anything is how much undeveloped land it sits against — Connecticut Hill and the surrounding state land put a very large block of forest and field on the town's doorstep.",
+        "Old farmhouse construction dominates outside the village: fieldstone foundations, additions built across generations, and outbuildings that add more structure per property than any village lot has. Each barn, shed, and garage is a potential rodent reservoir feeding the house.",
+      ],
+    },
+    approach: {
+      title: "Treat the property, not just the house",
+      paragraphs: [
+        "On a Newfield property the house is rarely the whole job. If a barn or equipment shed is supporting a rodent population, the house will keep receiving visitors no matter how carefully it is sealed. Knowing where the reservoir is and dealing with it there is usually cheaper than servicing the house over and over.",
+        "The forest edge raises two things worth planning for rather than reacting to: wildlife — squirrels, raccoons, and bats using overhanging limbs and old outbuildings — and ticks, which concentrate where mown grass meets tall grass and woodland rather than out in open lawn. Maintaining that boundary makes a measurable difference to exposure around the house.",
+      ],
+    },
+    faqs: [
+      { q: "We are surrounded by woods and fields. Is keeping mice out realistic?", a: "Yes, but it has to be a whole-property approach. Sealing the house properly is the core of it, and reducing what is holding a population in the barn or shed is what stops the resupply. Expecting zero pressure next to state land is not realistic; expecting a mouse-free house is." },
+      { q: "How worried should we be about ticks out here?", a: "Enough to manage the edges. Exposure concentrates where lawn meets tall grass, brush, and leaf litter, not in the middle of a mown yard. Keeping that transition maintained and treating harborage reduces risk around the house meaningfully — but no treatment makes a property against state forest tick-free, and daily checks still matter." },
+    ],
+  },
+
+  // =================================================================== GROTON
+  groton: {
+    structure: {
+      title: "A small manufacturing village in dairy country",
+      paragraphs: [
+        "Groton has the bones of a working village — a compact core of older homes and commercial buildings built around a manufacturing history, surrounded quickly by working farmland in the northeast corner of Tompkins County. The housing in the village is largely older wood frame; outside it, farm properties with substantial outbuildings.",
+        "That places most of the town within a short distance of pasture and hayfield, which is the single most useful fact about its pest pressure.",
+      ],
+    },
+    approach: {
+      title: "Field pressure is the whole story here",
+      paragraphs: [
+        "Cluster flies come off the surrounding agricultural ground in large numbers in August and September and orient to the warm sunny elevations of buildings. Nothing done indoors in October reaches them once they are in the wall voids, so the productive window is a timed exterior application on the south and west walls in late summer.",
+        "Field and deer mice move toward buildings from October, and harvest activity displaces them from fields earlier than temperature alone would. On farm properties, sealing the house while ignoring the barn is the standard way the problem persists.",
+      ],
+    },
+    faqs: [
+      { q: "The flies on my south wall every September are unbelievable. Is that normal here?", a: "For Groton, yes. Cluster flies develop in the soil of surrounding pasture and lawn and move to sunny walls in late summer. It is a function of the farmland around the village, not of your house. Timed exterior treatment before they gather is what changes it." },
+    ],
+  },
+
+  // ============================================================ MONTOUR FALLS
+  "montour-falls": {
+    structure: {
+      title: "A village built on low ground with a waterfall in the middle of it",
+      paragraphs: [
+        "Montour Falls sits on the flats just south of Watkins Glen at the head of Seneca Lake, with Shequaga Falls dropping into the village itself and Catharine Creek running through the valley. It is a genuinely low-lying village, and water is the defining feature of both the setting and the pest work.",
+        "The housing is largely older village stock — wood frame, stone and block foundations, full basements — on ground with a high water table. Damp basements are common enough here that they should be assumed rather than discovered.",
+      ],
+    },
+    approach: {
+      title: "Deal with the water first",
+      paragraphs: [
+        "A large share of what gets called a pest problem in Montour Falls is a moisture problem with insects attached. Carpenter ants in softened sill plate and band joist, silverfish and centipedes and camel crickets in damp basements, and the general attractiveness of a humid structure to overwintering rodents all trace back to the same underlying condition.",
+        "That means drainage, grading, gutters, downspout extensions, ventilation, and in a dirt crawlspace a vapor barrier, frequently accomplish more than any treatment. We will treat the pest, but on this ground we would rather tell you where the water is.",
+        "The village also shares Watkins Glen's hospitality overlay on a smaller scale, so short-term rentals and lodging here carry the same guest-driven bed bug exposure through the visitor season.",
+      ],
+    },
+    faqs: [
+      { q: "My basement is always damp and full of crawling insects. What is the actual fix?", a: "Usually the water rather than the insects. Centipedes, silverfish, camel crickets, and springtails are all moisture-driven, and on low ground like Montour Falls the dampness is the condition keeping them there. Drainage, ventilation, dehumidification, and a vapor barrier over dirt do the durable work." },
+      { q: "Do you handle short-term rentals here as well as in Watkins Glen?", a: "Yes, and with the same approach. Guest turnover is what drives bed bug exposure, so inspection frequency should track how many parties stay rather than how clean the property is. Catching an introduction early is the difference between one room handled quietly and a permanent review." },
+    ],
+  },
+
+  // ================================================================ FREEVILLE
+  freeville: {
+    structure: {
+      title: "A creekside village surrounded by farmland",
+      paragraphs: [
+        "Freeville is a small village on Fall Creek within the town of Dryden, with a compact core of older homes and rural, largely agricultural land in every direction. Being on the creek puts a good deal of the village on low ground, so damp basements are more common here than the surrounding higher farmland.",
+      ],
+    },
+    approach: {
+      title: "Village core, farm surroundings",
+      paragraphs: [
+        "The two pressures stack. From the farmland comes the late-summer cluster fly invasion and the October rodent push, both of which want an exterior, timed response on the sunny elevations before anything gets into the walls. From the creek comes moisture, which brings carpenter ants into softened sill and band joist and the usual damp-basement insects.",
+        "On the smaller village lots, exclusion at the foundation, sill, and porch junctions is straightforward and holds well once done. Properties out toward the farms need the outbuildings considered as part of the job.",
+      ],
+    },
+    faqs: [
+      { q: "Why is my basement damp when my neighbor up the hill has a dry one?", a: "Elevation relative to the creek. Freeville's lower ground carries a higher water table, and that shows up as persistent basement dampness — which in turn brings carpenter ants into softened wood and the moisture-seeking insects like centipedes and camel crickets. Drainage work is the durable answer." },
+    ],
+  },
+
+  // =========================================================== CAYUGA HEIGHTS
+  "cayuga-heights": {
+    structure: {
+      title: "An incorporated village under a very old tree canopy",
+      paragraphs: [
+        "Cayuga Heights is its own village rather than part of Ithaca, immediately north of the city and adjacent to Cornell. It is characterized by substantial homes on generous lots beneath an unusually mature tree canopy, with stable long-term occupancy and well-maintained housing.",
+        "The buildings are large and architecturally complex — multi-plane rooflines, dormers, deep eaves, and substantial attics — which means far more roof edge to inspect and far more places for something to settle in without being noticed for a while.",
+      ],
+    },
+    approach: {
+      title: "Canopy management is pest control here",
+      paragraphs: [
+        "The dominant work in this village is wildlife exclusion, and the dominant cause is the canopy. Limbs overhanging or touching a roof are the access route for squirrels, raccoons, and bats, and cutting them back prevents recurrence more reliably than anything done inside an attic.",
+        "Removal without exclusion is the recurring mistake. Trapping the animal in the attic leaves a proven, open entry point, and something else finds it — frequently within the same year. Sealing every entry is what ends it, and on a large complicated roofline that requires a proper inspection rather than closing the obvious hole.",
+        "With bats, New York's maternity-season restrictions apply, and on a big house with multiple access points a partial seal is worse than none — it traps animals inside. Finding the full picture before sealing is not thoroughness for its own sake.",
+      ],
+    },
+    faqs: [
+      { q: "We keep getting squirrels in the attic year after year. Why does it not stop?", a: "Because the entry point survives each removal. Trapping addresses the animal, not the opening, and an accessible known entry gets reused. Sealing all the entries and trimming the limbs that give roof access is what breaks the cycle." },
+      { q: "Is a preventive inspection worth it if nothing is wrong?", a: "In this village, more than most. These are large houses with complex rooflines where an animal can be established for a while before anyone notices, and finding an entry point before it is in use costs very little compared with dealing with an occupied attic." },
+    ],
+  },
+
+  // ==================================================================== DANBY
+  danby: {
+    structure: {
+      title: "Hill country against the state forest",
+      paragraphs: [
+        "Danby runs south from Ithaca into genuinely hilly, heavily wooded country, with Danby State Forest occupying a substantial part of the town. Properties are large, often on slopes, frequently against woodland, and the housing runs from old farmhouses to homes built on wooded acreage.",
+        "Forest edge is the defining condition. It puts wildlife, ticks, and overwintering insects close to structures year-round rather than seasonally, and hillside sites bring the drainage problems that come with building on a slope.",
+      ],
+    },
+    approach: {
+      title: "Forest edge, hillside water",
+      paragraphs: [
+        "Wildlife exclusion done properly is the core structural work — squirrels, raccoons, and bats using canopy access and the many openings that old rural buildings accumulate. Bat work has to respect New York's maternity-season timing, which is worth planning around rather than discovering in July.",
+        "On sloped sites, water moving downhill toward a foundation is what softens sill plate and band joist and brings carpenter ants. Grading, gutters, and downspout extensions frequently do more than treatment.",
+        "Ticks deserve honest framing here. Managing the boundary where lawn meets tall grass and woodland and treating harborage reduces exposure around the house meaningfully. It does not make a property against state forest tick-free, and we will not tell you otherwise.",
+      ],
+    },
+    faqs: [
+      { q: "Living against the state forest, what is realistic for ticks?", a: "Meaningful reduction around the house, not elimination. Exposure concentrates at the edge where mown lawn meets tall grass and leaf litter, so maintaining that transition and treating harborage genuinely helps. Personal checks after time outdoors remain the most effective single precaution." },
+      { q: "Our house is on a slope and we keep getting large black ants. Connected?", a: "Very likely. Water moving downhill toward the foundation keeps sill plate and framing damp, and carpenter ants excavate moisture-softened wood by preference. We find and treat the nest, but moving the water away is what stops the next colony." },
+    ],
+  },
+
+  // =================================================================== ENFIELD
+  enfield: {
+    structure: {
+      title: "Rural Tompkins County around a gorge",
+      paragraphs: [
+        "Enfield is rural and wooded, with Robert H. Treman State Park and Enfield Glen cutting through it, and a housing mix of old farmhouses, homes on acreage, and scattered newer builds. Like Newfield and Danby, it is a town where most properties are closer to woodland or field than to a neighbor.",
+        "Old rural construction dominates — fieldstone foundations, generational additions, and outbuildings that hold populations the house then receives.",
+      ],
+    },
+    approach: {
+      title: "Whole-site work, timed to the season",
+      paragraphs: [
+        "Cluster flies off the surrounding fields in late summer and the October rodent push are the two predictable annual events, and both respond to exterior work done before they arrive rather than treatment afterward. On the sunny south and west walls, timing is most of the effect.",
+        "Wildlife pressure from the gorge and woodland means canopy contact with rooflines is worth checking and correcting. Outbuildings need to be part of the plan rather than an afterthought — the barn is very often the reason the house keeps getting mice.",
+      ],
+    },
+    faqs: [
+      { q: "Do we need to treat the barn too, or just the house?", a: "Usually the barn matters. A building holding a rodent population keeps resupplying the house regardless of how well the house is sealed. That does not mean treating everything — it means identifying where the reservoir actually is and dealing with it there." },
+    ],
+  },
+
+  // =================================================================== ODESSA
+  odessa: {
+    structure: {
+      title: "A small village in the Catharine valley",
+      paragraphs: [
+        "Odessa is a rural Schuyler County village of older homes surrounded by farmland and wooded hillside, in the valley running south from Montour Falls. The housing is largely older wood frame with the foundations and entry points that come with age, on properties where field and woodland are close.",
+      ],
+    },
+    approach: {
+      title: "The rural annual cycle, handled on schedule",
+      paragraphs: [
+        "The pattern here is consistent and predictable, which is genuinely good news: cluster flies off the surrounding ground in August and September, rodents moving in from October, overwintering insects on the sunny walls through fall, and carpenter ants where moisture has softened wood. None of it is unusual and all of it responds to timing.",
+        "A timed exterior treatment in late summer plus proper exclusion at the foundation and sill covers most of what an Odessa property needs in a year. Where there are outbuildings, they belong in the plan.",
+      ],
+    },
+    faqs: [
+      { q: "What is the one thing most worth doing for a rural house like ours?", a: "Exterior treatment on the sunny walls in late summer, before cluster flies and overwintering insects gather, combined with sealing the foundation and sill. Those two things address the large majority of what a property here sees in a year, and both have to happen before the problem rather than after." },
+    ],
+  },
+
+  // ================================================================== BURDETT
+  burdett: {
+    structure: {
+      title: "Wine country on the east side of Seneca Lake",
+      paragraphs: [
+        "Burdett sits above the east shore of Seneca Lake in the middle of the wine trail, so the building stock is a mix of village and rural homes alongside genuine hospitality property — tasting rooms, small lodging, and short-term rentals working the visitor season.",
+        "Vineyard and open agricultural ground surrounds much of it, and lake-influenced slopes put a good deal of property on a grade.",
+      ],
+    },
+    approach: {
+      title: "Two customers, two calendars",
+      paragraphs: [
+        "For homes, the rural pattern applies: cluster flies off the surrounding ground in late summer, rodents from October, and moisture-related carpenter ant risk on sloped sites where water runs toward a foundation.",
+        "For anything with guests or a tasting room, the calendar inverts — peak risk arrives with peak business from late spring through fall. That means bed bug exposure through guest turnover, and fruit flies and stored-product pests in any space handling fruit, sugar, and fermentation. Fruit fly problems in tasting rooms are almost always a breeding site rather than an invasion, so finding the drain, mat, or spill tray beats spraying adults.",
+      ],
+    },
+    faqs: [
+      { q: "We have fruit flies in the tasting room in August. What actually stops it?", a: "Finding where they are breeding. It is nearly always a site rather than an invasion — a floor drain, a mat, a spill tray, a mop bucket, or fermenting residue somewhere warm. Treating adults buys a day or two; removing the source ends it." },
+      { q: "Do you work around our tasting room hours?", a: "Yes. Hospitality work gets scheduled around your operation rather than ours, before opening or after close during the season, with documentation for your file." },
+    ],
+  },
+
+  // =================================================================== TYRONE
+  tyrone: {
+    structure: {
+      title: "Rural Schuyler County near the small lakes",
+      paragraphs: [
+        "Tyrone is rural and wooded, in the part of Schuyler County near Lamoka and Waneta Lakes, and its building stock includes a meaningful share of seasonal camps and cottages alongside year-round rural homes and farm properties.",
+        "Seasonal occupancy is the distinguishing feature. A building that sits unheated and unvisited from November to April is a fundamentally different pest proposition from one that is lived in.",
+      ],
+    },
+    approach: {
+      title: "Close-up is the appointment that matters",
+      paragraphs: [
+        "For a seasonal property, most of the damage owners find in spring happened in an empty building over the winter, with nobody there to notice the first signs. Sealing entry points before the building sits — at close-up, not at open-up — is worth more than any treatment done in April.",
+        "For year-round rural homes, the standard pattern applies: exterior treatment timed to late summer for cluster flies and overwintering insects, exclusion ahead of the October rodent push, and outbuildings treated as part of the site rather than separate from it.",
+      ],
+    },
+    faqs: [
+      { q: "Our camp is closed all winter. When should it be serviced?", a: "In the fall, at close-up. An unoccupied, unheated building is ideal for rodents and there is nobody there to catch it early, so sealing before it sits is the single highest-value thing an owner can do. Spring service is cleanup; fall service is prevention." },
+    ],
+  },
+
+  // ============================================================== BEAVER DAMS
+  "beaver-dams": {
+    structure: {
+      title: "A rural hamlet between Schuyler and Chemung",
+      paragraphs: [
+        "Beaver Dams is a small rural hamlet in open country toward the Chemung County line, with older homes, farm properties, and a good deal of field and woodland in every direction. The housing is older and rural in character, with the foundations, outbuildings, and entry points that go with it.",
+      ],
+    },
+    approach: {
+      title: "Predictable pressure, predictable timing",
+      paragraphs: [
+        "The pest year out here is agricultural and seasonal: heavy cluster fly pressure off the surrounding ground in August and September, rodents moving toward buildings from October, and overwintering insects gathering on the sunny elevations through fall.",
+        "All three respond to the same thing — a timed exterior application on the south and west walls in late summer, plus methodical exclusion at the foundation and sill. Where there are barns or sheds, they are part of the job rather than separate from it.",
+      ],
+    },
+    faqs: [
+      { q: "Is there any point treating for cluster flies if we are surrounded by fields?", a: "Yes, and the difference is substantial. You will not get to zero next to open hayfield, and anyone promising that is overselling — but a timed exterior treatment on the sunny walls before they gather is the difference between a normal house and an unlivable one in September." },
+    ],
+  },
+
+  // ================================================================ BIG FLATS
+  "big-flats": {
+    structure: {
+      title: "Flat river land, an airport, and a retail corridor",
+      paragraphs: [
+        "The name is literal: Big Flats occupies the broad flat land along the Chemung River, and that low, level ground gives it a high water table and damp basements as a matter of course. The town also holds the regional airport and a substantial commercial and retail corridor alongside its residential neighborhoods.",
+        "Housing skews newer than Elmira's — postwar and later subdivisions with poured foundations rather than pre-1940 city stock — so the structural rodent entry problems are less severe. What replaces them is commercial pressure and moisture.",
+      ],
+    },
+    approach: {
+      title: "Commercial neighbors and a high water table",
+      paragraphs: [
+        "Properties bordering the commercial and retail corridor absorb rodent pressure that residential streets do not generate on their own. Dumpsters, loading areas, and food service support populations at a scale a neighborhood cannot, and homes on that boundary consistently see more activity than homes a few streets away. Exclusion on your own building is fully within your control; the surrounding population often is not.",
+        "For the businesses themselves, exterior management and refuse handling do most of the work — a spotless kitchen with a poorly managed loading area behind it will still have rodents.",
+        "On the residential side, the flat low ground means damp basements and the moisture-driven insects that come with them, so drainage and ventilation matter more here than the newer housing would suggest.",
+      ],
+    },
+    faqs: [
+      { q: "My house backs onto the commercial area and I see more mice than my neighbors. Coincidence?", a: "Almost certainly not. Dumpsters, loading docks, and food-service waste support far larger rodent populations than a residential street, and properties on that boundary absorb the overflow. Sealing your home matters, and where a commercial neighbor is the source it is worth raising with them." },
+      { q: "Our house is only twenty years old but the basement is always damp. Why?", a: "The ground rather than the house. Big Flats sits on flat low river land with a high water table, so basement dampness is common regardless of construction age. That dampness is what brings centipedes, silverfish, camel crickets, and carpenter ants, so drainage and ventilation are the durable fix." },
+    ],
+  },
+
+  // ==================================================================== HOMER
+  homer: {
+    structure: {
+      title: "A historic village green surrounded by dairy country",
+      paragraphs: [
+        "Homer is a handsome historic village just north of Cortland, built around its village green, with a concentration of well-preserved older homes and a walkable core. Step outside the village and it is dairy and field country almost immediately.",
+        "The village housing is old, which means fieldstone foundations, settled sills, generational additions, and the moisture-prone wood that comes with a century of weather. Homes are also close enough together in the core that rodent pressure is shared along a street.",
+      ],
+    },
+    approach: {
+      title: "Old wood, open fields",
+      paragraphs: [
+        "Two things dominate. From the housing: carpenter ants in moisture-softened sill plate, band joist, porch columns, and roof edges, almost always traceable to a gutter, a grade, or a downspout putting water where it should not be. Treating the colony without correcting the water simply schedules the next one.",
+        "From the surrounding farmland: heavy cluster fly pressure in August and September and the October rodent push. Both are exterior, timed problems — the sunny south and west walls in late summer is where the work happens.",
+        "On historic homes, exclusion should be done with some care for the building. Sealing a century-old house well is entirely achievable without doing anything crude to it.",
+      ],
+    },
+    faqs: [
+      { q: "Our village home is over a hundred years old. Can it actually be sealed?", a: "Yes. It takes a methodical pass rather than one repair — older homes have many small openings at the foundation, sill, and utility penetrations instead of one obvious gap — but done properly it holds for years, and it can be done without anything crude or conspicuous on a historic house." },
+      { q: "Why do we get carpenter ants when the house is well maintained?", a: "Almost always a localized water problem rather than general neglect — a failed gutter section, a downspout dumping at the foundation, a grade that slopes the wrong way, or a leak at a sill. Carpenter ants excavate wood that moisture has already softened. Finding that spot is what stops it recurring." },
+    ],
+  },
+
+  // =================================================================== MCGRAW
+  mcgraw: {
+    structure: {
+      title: "A small village in Cortland County farm country",
+      paragraphs: [
+        "McGraw is a compact rural village east of Cortland, with older village housing and working farmland close on every side. It is small enough that the whole village is effectively at the field edge, which sets its pest profile without much complication.",
+      ],
+    },
+    approach: {
+      title: "Straightforward, seasonal, exterior",
+      paragraphs: [
+        "The annual cycle is agricultural: cluster flies off the surrounding ground in late summer, rodents from October, overwintering insects on sunny walls, and carpenter ants anywhere water has softened wood in the older housing.",
+        "The good news is that a predictable problem is a manageable one. A timed exterior treatment in late summer and proper exclusion at the foundation and sill handle most of what a McGraw property faces, and neither is complicated — they simply have to happen before the season rather than during it.",
+      ],
+    },
+    faqs: [
+      { q: "When should we schedule if we only do one treatment a year?", a: "Late summer, before the cluster flies and overwintering insects gather on the walls. That single timed exterior application, paired with sealing the foundation and sill, addresses the largest share of what a property here sees. Calling in October is a season late." },
+    ],
+  },
+
+  // ================================================================== WAVERLY
+  waverly: {
+    structure: {
+      title: "A border village in the Susquehanna valley",
+      paragraphs: [
+        "Waverly sits on the New York side of the Pennsylvania line in the Susquehanna valley, effectively continuous with the communities across the border. It is a village of older homes on valley floor ground, with the low elevation, high water table, and damp basements that come with a river valley.",
+        "The housing is older village stock — wood frame, stone and block foundations, a meaningful share divided into apartments — and the density is closer to a small town than to the rural country around it.",
+      ],
+    },
+    approach: {
+      title: "Valley moisture and shared walls",
+      paragraphs: [
+        "Two things drive the work. Moisture, from the valley floor: damp basements bringing carpenter ants into softened framing, plus the moisture-seeking insects — centipedes, silverfish, camel crickets — that indicate a humidity problem rather than an infestation. Drainage and ventilation do the durable work there.",
+        "And connected buildings: where older housing has been divided into apartments, cockroaches and bed bugs move through shared walls and utility chases, and treating one unit while the others go untouched relocates the population instead of removing it. Buildings need handling as buildings.",
+        "The river valley also means real mosquito habitat in a wet summer, where reduction is achievable and elimination is not.",
+      ],
+    },
+    faqs: [
+      { q: "I treated my apartment and they came back. Why?", a: "In a divided older building, the population very likely moved to a neighboring unit during treatment and returned after. Connected units — beside, above, and below — need to be inspected and handled together. If you rent, that is a written request to your landlord, and New York's habitability rules support it." },
+      { q: "Our basement is damp every spring. Is that why we get insects?", a: "Usually, yes. Waverly's valley-floor ground carries a high water table, and seasonal dampness brings the moisture-seeking insects and softens the wood carpenter ants prefer. Treating them without addressing the water means treating them again next spring." },
+    ],
+  },
+
+  // =================================================================== CANDOR
+  candor: {
+    structure: {
+      title: "Hills, hollows, and old farmhouses",
+      paragraphs: [
+        "Candor is rural Tioga County — hill and hollow country along Catatonk Creek, with old farmhouses, wooded lots, and working agricultural land. Properties are large, often with barns and outbuildings, and the terrain means many homes sit on a grade with water moving past them.",
+        "Old rural construction dominates: fieldstone foundations, additions built across generations, and more structure per property than any village lot has.",
+      ],
+    },
+    approach: {
+      title: "Site-wide, with attention to the slope",
+      paragraphs: [
+        "Outbuildings matter as much as the house. A barn or shed holding a rodent population keeps the house supplied indefinitely, so knowing where the reservoir is beats servicing the house repeatedly.",
+        "On sloped sites, water moving toward a foundation is the usual root cause behind carpenter ants in sill plate and band joist. Grading, gutters, and downspout extensions frequently accomplish more than treatment does.",
+        "Cluster flies off the surrounding fields and the October rodent push are the predictable seasonal events, both handled on the exterior and timed for late summer.",
+      ],
+    },
+    faqs: [
+      { q: "We are on a hillside and the uphill side of the house is always wet. Is that a pest issue?", a: "It becomes one. Persistent moisture against a foundation softens the sill plate and band joist, and carpenter ants excavate exactly that kind of wood. The colony can be treated, but the durable fix is moving the water — grading, gutters, and downspout extensions." },
+    ],
+  },
+
+  // ================================================================== SPENCER
+  spencer: {
+    structure: {
+      title: "A rural hamlet at the western edge of Tioga County",
+      paragraphs: [
+        "Spencer is small and rural, in the hill country at the western end of Tioga County toward the Tompkins line, with older homes, farm properties, and woodland close at hand. The building stock is rural in character — older construction, outbuildings, and lots large enough that field and forest edge are part of most properties.",
+      ],
+    },
+    approach: {
+      title: "The rural essentials, done on time",
+      paragraphs: [
+        "Three things cover most of what a Spencer property needs. A timed exterior treatment on the sunny south and west walls in late summer, which handles cluster flies and the overwintering insects together. Methodical exclusion at the foundation, sill, and utility penetrations before the October rodent push. And attention to outbuildings, which are usually the reason a well-sealed house still gets mice.",
+        "Where woodland meets the property, wildlife exclusion at the roofline and tick management at the lawn edge are worth planning rather than reacting to. Bat work is timing-restricted in New York, so it needs scheduling rather than improvising.",
+      ],
+    },
+    faqs: [
+      { q: "What does a rural property here actually need in a year?", a: "Realistically three things: an exterior treatment on the sunny walls in late summer, exclusion at the foundation and sill before fall, and the outbuildings kept from holding a population. That covers the large majority of what properties in this area see, and none of it is complicated — it just has to be done ahead of the season." },
     ],
   },
 };
