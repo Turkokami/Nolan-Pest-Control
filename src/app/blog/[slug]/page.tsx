@@ -11,7 +11,9 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { JsonLd } from "@/components/schema/JsonLd";
-import { pageGraph } from "@/components/schema/siteSchema";
+import { pageGraph, faqGraph } from "@/components/schema/siteSchema";
+import { getArticleDeep } from "@/data/article-content-deep";
+import { FaqAccordion } from "@/components/ui/FaqAccordion";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -43,6 +45,9 @@ export default async function BlogPostPage({
   const post = getPost(slug);
   if (!post) notFound();
 
+  const deep = getArticleDeep(slug); // depth layer
+  const sections = [...post.sections, ...(deep?.sections ?? [])];
+  const faq = faqGraph(deep?.faqs ?? []);
   const path = `/blog/${post.slug}`;
   const crumbs = [
     { name: "Home", path: "/" },
@@ -71,6 +76,7 @@ export default async function BlogPostPage({
     <>
       <JsonLd data={pageGraph({ path, name: post.title, description: post.excerpt, breadcrumbs: crumbs })} />
       <JsonLd data={articleSchema} />
+      {faq && <JsonLd data={faq} />}
       <Breadcrumbs items={crumbs} />
 
       <Section className="pt-6">
@@ -84,7 +90,7 @@ export default async function BlogPostPage({
           </p>
 
           <div className="mt-8 space-y-6">
-            {post.sections.map((section, i) => (
+            {sections.map((section, i) => (
               <div key={i}>
                 {section.heading && (
                   <h2 className="text-2xl font-bold text-brand-900">{section.heading}</h2>
@@ -95,6 +101,15 @@ export default async function BlogPostPage({
               </div>
             ))}
           </div>
+
+          {deep && deep.faqs.length > 0 && (
+            <div className="mt-10">
+              <h2 className="text-2xl font-bold text-brand-900">Common questions</h2>
+              <div className="mt-6">
+                <FaqAccordion faqs={deep.faqs} />
+              </div>
+            </div>
+          )}
 
           {/* Related services */}
           {related.length > 0 && (

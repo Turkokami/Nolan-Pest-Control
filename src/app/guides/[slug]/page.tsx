@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { JsonLd } from "@/components/schema/JsonLd";
 import { pageGraph, faqGraph } from "@/components/schema/siteSchema";
+import { getArticleDeep } from "@/data/article-content-deep";
+import { FaqAccordion } from "@/components/ui/FaqAccordion";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -50,7 +52,10 @@ export default async function GuidePage({
   ];
   const related = g.relatedServices.map((s) => getService(s)).filter((s): s is NonNullable<typeof s> => Boolean(s));
   // FAQ schema from the guide's core question + direct answer.
-  const faq = faqGraph([{ q: g.question, a: g.answerLead }]);
+  const deep = getArticleDeep(slug); // depth layer
+  const sections = [...g.sections, ...(deep?.sections ?? [])];
+  const faqs = [{ q: g.question, a: g.answerLead }, ...(deep?.faqs ?? [])];
+  const faq = faqGraph(faqs);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -78,7 +83,7 @@ export default async function GuidePage({
           </div>
 
           <div className="mt-8 space-y-6">
-            {g.sections.map((section, i) => (
+            {sections.map((section, i) => (
               <div key={i}>
                 {section.heading && <h2 className="text-2xl font-bold text-brand-900">{section.heading}</h2>}
                 {section.paragraphs.map((para, j) => (
@@ -87,6 +92,15 @@ export default async function GuidePage({
               </div>
             ))}
           </div>
+
+          {deep && deep.faqs.length > 0 && (
+            <div className="mt-10">
+              <h2 className="text-2xl font-bold text-brand-900">Common questions</h2>
+              <div className="mt-6">
+                <FaqAccordion faqs={deep.faqs} />
+              </div>
+            </div>
+          )}
 
           {related.length > 0 && (
             <div className="mt-10 rounded-2xl border border-brand-100 bg-white p-6">
