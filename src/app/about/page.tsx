@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/schema/JsonLd";
 import { pageGraph } from "@/components/schema/siteSchema";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About Nolan Pest Control",
+  title: "About",
   description: `${business.name} is a family-owned pest control company serving Ithaca and Central New York.`,
   path: "/about",
 });

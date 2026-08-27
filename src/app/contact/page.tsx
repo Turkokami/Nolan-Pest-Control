@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/schema/JsonLd";
 import { pageGraph } from "@/components/schema/siteSchema";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact Nolan Pest Control",
+  title: "Contact",
   description: `Contact ${business.name} in Ithaca, NY. Call ${business.phone} or request a free estimate online.`,
   path: "/contact",
 });

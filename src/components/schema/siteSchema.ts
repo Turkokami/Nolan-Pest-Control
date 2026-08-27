@@ -20,7 +20,16 @@ function sameAs(): string[] {
     business.social.instagram,
     business.social.gbp,
   ];
-  return urls.filter((u) => u.length > 0);
+  // A bare profile-host root (e.g. "https://www.instagram.com/") is a placeholder, not a profile,
+  // and asserting it in sameAs tells Google this business IS that site. Require a real path.
+  return urls.filter((u) => {
+    if (!u) return false;
+    try {
+      return new URL(u).pathname.replace(/\/+$/, "").length > 0;
+    } catch {
+      return false;
+    }
+  });
 }
 
 /** Explicit Place list for areaServed (counties). Towns added in Phase 2. */

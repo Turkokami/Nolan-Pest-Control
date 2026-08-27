@@ -67,7 +67,7 @@ export const business = {
   // Social — used as schema `sameAs`
   social: {
     facebook: "https://www.facebook.com/NolanPestControl", // confirmed by owner 2026-08-25
-    instagram: "https://www.instagram.com/", // PENDING exact handle
+    instagram: "", // STILL PENDING — must stay empty; a bare instagram.com URL is not a profile
     gbp: "https://share.google/y5Km0aijLZ0onYUox", // confirmed 2026-08-26 — see note in `reviews`
   },
 

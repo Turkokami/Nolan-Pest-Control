@@ -77,6 +77,13 @@ export function Footer() {
       <div className="border-t border-ink-line">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-cream-300 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>© {year} {business.name}. All rights reserved.</p>
+          {/* Legal pages were built and listed in the sitemap but linked from nowhere on the site,
+              which made the accessibility statement in particular unreachable. */}
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <Link href="/privacy" className="hover:text-gold-300">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-gold-300">Terms</Link>
+            <Link href="/accessibility" className="hover:text-gold-300">Accessibility</Link>
+          </nav>
           <p>Residential &amp; Commercial · Locally Family Owned &amp; Operated</p>
         </div>
       </div>
