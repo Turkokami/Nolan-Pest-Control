@@ -34,6 +34,10 @@ export const business = {
   emailCurrent: "nolanpest@outlook.com", // legacy — being retired (Defect #7)
   email: "nolanpestny@gmail.com", // confirmed by owner 2026-08-25; info@ mailbox is NOT live
 
+  /** Where website quote-form submissions are delivered. Separate from the published address so
+   *  lead routing can change (a CRM inbox, a shared mailbox) without altering the public NAP. */
+  leadInbox: "nolanpestny@gmail.com", // confirmed by owner on the questionnaire, 2026-08-25
+
   url: "https://nolanpestcontrol.com",
 
   // Address — PENDING client input. No LocalBusiness address published today (Defect #3).

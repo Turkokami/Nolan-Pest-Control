@@ -8,22 +8,70 @@ import { formatPhoneHref } from "@/lib/nap";
 /**
  * Quote form — RETAINED from the current site (audit §2.4/§3: best conversion asset).
  * Same field set: name, email, phone, service dropdown (pre-populated), address/city/zip, SMS consent.
- * Phase 0 posts to a placeholder handler and shows the success state with a call fallback.
- * Phase 1: wire `action` to Resend/Formspree/CRM webhook (see .env.example).
+ *
+ * Wired to POST /api/quote, which delivers to business.leadInbox.
+ *
+ * This previously called preventDefault() and showed the thank-you state unconditionally, sending
+ * the lead nowhere. The rule that replaces it: success is shown ONLY on a 2xx from the API. Any
+ * failure — network, validation, or an unconfigured mailer — shows an error with the phone number,
+ * and leaves the entered values in place so nobody has to retype anything.
  */
+
+type Status = "idle" | "sending" | "sent" | "error";
+
 export function QuoteForm({ compact = false }: { compact?: boolean }) {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState<string>("");
   const [consent, setConsent] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO(Phase 1): POST to QUOTE_FORM_WEBHOOK_URL. For now, optimistic success state.
-    setSubmitted(true);
+    if (status === "sending") return;
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      firstName: String(data.get("firstName") ?? ""),
+      lastName: String(data.get("lastName") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      service: String(data.get("service") ?? ""),
+      address: String(data.get("address") ?? ""),
+      city: String(data.get("city") ?? ""),
+      zip: String(data.get("zip") ?? ""),
+      smsConsent: consent,
+      company: String(data.get("company") ?? ""), // honeypot
+    };
+
+    setStatus("sending");
+    setError("");
+
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+
+      if (!res.ok || !json.ok) {
+        setError(json.error || "Something went wrong sending your request.");
+        setStatus("error");
+        return;
+      }
+
+      form.reset();
+      setConsent(false);
+      setStatus("sent");
+    } catch {
+      setError("We could not reach the server. Please check your connection or call us.");
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "sent") {
     return (
-      <div className="text-center">
+      <div className="text-center" role="status">
         <p className="text-lg font-bold text-brand-800">Thanks — we&apos;ll be in touch soon.</p>
         <p className="mt-2 text-sm text-brand-900/70">
           Need help now? Call us at{" "}
@@ -37,8 +85,25 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-3" id="quote-form">
+    <form onSubmit={handleSubmit} className="grid gap-3" id="quote-form" noValidate={false}>
       <p className="text-lg font-bold text-brand-800">Request a Free Estimate</p>
+
+      {status === "error" && (
+        <div
+          role="alert"
+          className="rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-800"
+        >
+          <p className="font-semibold">{error}</p>
+          <p className="mt-1">
+            Please call{" "}
+            <a href={formatPhoneHref()} className="font-bold underline">
+              {business.phone}
+            </a>{" "}
+            — your details are still here if you want to try again.
+          </p>
+        </div>
+      )}
+
       <div className="grid grid-cols-2 gap-3">
         <Field name="firstName" label="First name" autoComplete="given-name" required />
         <Field name="lastName" label="Last name" autoComplete="family-name" required />
@@ -65,6 +130,15 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
         <Field name="city" label="City" autoComplete="address-level2" />
         <Field name="zip" label="Zip" autoComplete="postal-code" inputMode="numeric" />
       </div>
+
+      {/* Honeypot — hidden from people, tempting to bots. Not display:none, which some bots skip. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label>
+          Company
+          <input name="company" type="text" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <label className="flex items-start gap-2 text-xs text-brand-900/70">
         <input
           type="checkbox"
@@ -80,9 +154,10 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       </label>
       <button
         type="submit"
-        className="mt-1 rounded-lg bg-gradient-to-b from-gold-300 to-gold-600 px-5 py-3 text-sm font-extrabold text-ink-900 transition hover:from-gold-400 hover:to-gold-700"
+        disabled={status === "sending"}
+        className="mt-1 rounded-lg bg-gradient-to-b from-gold-300 to-gold-600 px-5 py-3 text-sm font-extrabold text-ink-900 transition hover:from-gold-400 hover:to-gold-700 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Get My Free Estimate
+        {status === "sending" ? "Sending…" : "Get My Free Estimate"}
       </button>
       <p className="text-center text-xs text-brand-900/60">
         Prefer to talk? Call{" "}
