@@ -67,14 +67,28 @@ function rateLimited(ip: string): boolean {
   return hits.length > MAX_PER_WINDOW;
 }
 
-async function sendViaResend(lead: Lead, serviceLabel: string): Promise<void> {
+/** Until the sending domain is verified in Resend, onboarding@resend.dev is the only usable
+ *  from-address. Once nolanpestcontrol.com is verified, set QUOTE_FORM_FROM to something like
+ *  "Nolan Pest Control Website <leads@nolanpestcontrol.com>" for better deliverability. */
+function resendFrom(): string {
+  return process.env.QUOTE_FORM_FROM || "Nolan Pest Control Website <onboarding@resend.dev>";
+}
+
+async function resendSend(payload: Record<string, unknown>): Promise<void> {
   const key = process.env.RESEND_API_KEY;
   if (!key) throw new Error("RESEND_API_KEY not set");
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    throw new Error(`Resend responded ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  }
+}
 
-  // Until the sending domain is verified in Resend, onboarding@resend.dev is the only usable
-  // from-address. Once nolanpestcontrol.com is verified, set QUOTE_FORM_FROM to something like
-  // "Nolan Pest Control Website <leads@nolanpestcontrol.com>" for better deliverability.
-  const from = process.env.QUOTE_FORM_FROM || "Nolan Pest Control Website <onboarding@resend.dev>";
+async function sendViaResend(lead: Lead, serviceLabel: string): Promise<void> {
+  const from = resendFrom();
 
   const name = `${lead.firstName} ${lead.lastName}`.trim();
   const rows: [string, string][] = [
@@ -102,21 +116,83 @@ Sent from the ${escapeHtml(business.name)} website. Reply to this email to answe
     name || "the customer",
   )} directly.</p>`;
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from,
-      to: [business.leadInbox],
-      subject: `New estimate request — ${name || "website"}${serviceLabel ? ` (${serviceLabel})` : ""}`,
-      text,
-      html,
-      reply_to: lead.email || undefined,
-    }),
+  await resendSend({
+    from,
+    to: [business.leadInbox],
+    subject: `New estimate request — ${name || "website"}${serviceLabel ? ` (${serviceLabel})` : ""}`,
+    text,
+    html,
+    reply_to: lead.email || undefined,
   });
+}
 
+/**
+ * Short new-lead alert to the owner's cell. Requested on the questionnaire.
+ *
+ * BEST EFFORT BY DESIGN. This runs after delivery and its outcome never affects the HTTP response:
+ * if the email or webhook succeeded, the lead is safely captured, and failing the request over an
+ * undelivered text would tell the customer their request failed when it did not. Failures are
+ * logged for the operator instead.
+ *
+ * Two transports, so this can work with or without a Twilio account:
+ *   TWILIO_ACCOUNT_SID + TWILIO_AUTH_TOKEN + TWILIO_FROM_NUMBER — a real SMS.
+ *   ALERT_SMS_EMAIL — the alert emailed to a carrier SMS gateway address (e.g.
+ *                     6072696218@vtext.com). Free and needs no second account, but gateways are
+ *                     carrier-specific and some carriers have deprecated them. Fine as a stopgap.
+ */
+function alertText(lead: Lead, serviceLabel: string): string {
+  const name = `${lead.firstName} ${lead.lastName}`.trim();
+  const where = [lead.city, lead.zip].filter(Boolean).join(" ");
+  // ASCII separator on purpose. A middot or en dash is outside GSM-7, which forces the whole
+  // message into UCS-2 and cuts the single-segment limit from 160 characters to 70 — billing two
+  // segments for a short alert. Plain hyphen keeps it to one.
+  const parts = [name || "(no name)", lead.phone, serviceLabel || "(no service)", where]
+    .filter(Boolean)
+    .join(" - ");
+  // Kept short on purpose: one segment where possible, readable at a glance on a lock screen.
+  // The full detail is in the email.
+  return `New lead: ${parts}`.slice(0, 300);
+}
+
+async function sendSmsViaTwilio(bodyText: string): Promise<void> {
+  const sid = process.env.TWILIO_ACCOUNT_SID;
+  const token = process.env.TWILIO_AUTH_TOKEN;
+  const from = process.env.TWILIO_FROM_NUMBER;
+  if (!sid || !token || !from) throw new Error("Twilio env vars not set");
+
+  const res = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${sid}/Messages.json`, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${Buffer.from(`${sid}:${token}`).toString("base64")}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({ To: business.alertSms, From: from, Body: bodyText }),
+  });
   if (!res.ok) {
-    throw new Error(`Resend responded ${res.status}: ${(await res.text()).slice(0, 300)}`);
+    throw new Error(`Twilio responded ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  }
+}
+
+async function sendSmsViaGateway(bodyText: string): Promise<void> {
+  const to = process.env.ALERT_SMS_EMAIL;
+  if (!to) throw new Error("ALERT_SMS_EMAIL not set");
+  // Carrier gateways strip most formatting; keep it to a bare line of text and no subject.
+  await resendSend({ from: resendFrom(), to: [to], subject: "", text: bodyText });
+}
+
+async function sendSmsAlert(lead: Lead, serviceLabel: string): Promise<void> {
+  const bodyText = alertText(lead, serviceLabel);
+  const transports: Promise<void>[] = [];
+  if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_FROM_NUMBER) {
+    transports.push(sendSmsViaTwilio(bodyText));
+  } else if (process.env.ALERT_SMS_EMAIL) {
+    transports.push(sendSmsViaGateway(bodyText));
+  }
+  if (transports.length === 0) return; // alerts simply not configured — not an error
+
+  const results = await Promise.allSettled(transports);
+  for (const r of results) {
+    if (r.status === "rejected") console.error("[quote] sms alert failed:", r.reason);
   }
 }
 
@@ -208,6 +284,11 @@ export async function POST(request: Request) {
       { status: 502 },
     );
   }
+
+  // The lead is captured at this point. The alert is a convenience on top of that, so it is
+  // awaited (serverless will not reliably finish detached work) but never allowed to change the
+  // outcome the customer sees.
+  await sendSmsAlert(lead, serviceLabel);
 
   return NextResponse.json({ ok: true });
 }

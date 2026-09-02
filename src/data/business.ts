@@ -38,6 +38,10 @@ export const business = {
    *  lead routing can change (a CRM inbox, a shared mailbox) without altering the public NAP. */
   leadInbox: "nolanpestny@gmail.com", // confirmed by owner on the questionnaire, 2026-08-25
 
+  /** Cell number for new-lead SMS alerts. Owner asked for these on the questionnaire and gave
+   *  this number, which is the same as the published business line. E.164 for Twilio. */
+  alertSms: "+16072696218", // confirmed by owner on the questionnaire, 2026-08-25
+
   url: "https://nolanpestcontrol.com",
 
   // Address — PENDING client input. No LocalBusiness address published today (Defect #3).
