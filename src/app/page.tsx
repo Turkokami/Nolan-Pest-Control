@@ -38,7 +38,7 @@ export default function HomePage() {
             <p className="mt-3 text-cream-200/85">
               {business.brandLine} We&apos;re not a franchise or a call center — when you call
               {" "}{business.name}, you reach the family that actually does the work and stands behind
-              it. Based right here in {business.hubCity}, we treat every home like a neighbor&apos;s,
+              it. {business.hubCity} and the surrounding counties are where we spend our days, and we treat every home like a neighbor&apos;s,
               because usually it is.
             </p>
           </div>

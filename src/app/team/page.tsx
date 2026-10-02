@@ -49,7 +49,7 @@ export default function TeamPage() {
           <p className="mt-6 text-lg text-brand-900/80">{business.brandLine}</p>
           <p className="mt-4 text-brand-900/80">
             We&apos;re not a franchise or a call center. We&apos;re a local, family-owned pest control
-            company based in {business.hubCity}, and when you call, you reach the people who actually
+            company working across {business.hubCity} and the surrounding counties, and when you call, you reach the people who actually
             do the work and stand behind it.
           </p>
         </div>

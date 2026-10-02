@@ -31,7 +31,7 @@ export const countyContentDeep: Record<string, CountyDeep> = {
     landscape: {
       title: "Serving the whole county — city, campus, and countryside",
       paragraphs: [
-        "As the county where we're based, Tompkins is where our local knowledge runs deepest, and the range of property types we serve reflects it. We work on Collegetown rentals and Cornell Heights apartments, the lakefront homes of Lansing, the historic houses on Ithaca's hills, and the rural farmhouses of Dryden and Enfield — each with a different pest profile and a different right answer. That block-by-block familiarity is exactly what a national franchise's one-size location page can't match.",
+        "Tompkins is the county we work in most, and it is where our local knowledge runs deepest. The range of property types we serve there reflects it. We work on Collegetown rentals and Cornell Heights apartments, the lakefront homes of Lansing, the historic houses on Ithaca's hills, and the rural farmhouses of Dryden and Enfield — each with a different pest profile and a different right answer. That block-by-block familiarity is exactly what a national franchise's one-size location page can't match.",
         "The heavy rental and student-housing concentration also means documentation and discretion matter here. Landlords carry habitability responsibility in New York, and coordinated, well-documented treatment across connected units is often what actually resolves a problem rather than pushing it next door. For homeowners and businesses alike, being local means fast response and a real person who knows the neighborhood — not a call center scheduling a visit for next week.",
       ],
     },

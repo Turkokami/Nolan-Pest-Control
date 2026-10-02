@@ -72,6 +72,13 @@ export const business = {
 
   priceRange: "$$",
 
+  /** Payment, confirmed by owner 2026-10-02. Residential and commercial differ, which is what the
+   *  earlier "credit card and check (commercial only)" note was trying to say. */
+  payment: {
+    residential: "Credit card",
+    commercial: "Check at time of service, or credit card",
+  },
+
   // Social — used as schema `sameAs`
   social: {
     facebook: "https://www.facebook.com/NolanPestControl", // confirmed by owner 2026-08-25
@@ -81,9 +88,14 @@ export const business = {
 
   // Credentials / E-E-A-T — PENDING client inputs (Defect #9)
   credentials: {
-    nysdecBusinessReg: "", // STILL PENDING — owner supplied the applicator cert, not the business registration
+    nysdecBusinessReg: "19204", // confirmed by owner 2026-10-02
     applicatorCert: "c8902993", // Matthew Nolan, confirmed by owner 2026-08-25
     insured: true,
+    insurer: "LIPCA", // confirmed by owner 2026-10-02
+    /** Guarantee terms, confirmed by owner 2026-10-02. Both windows are 90 days — the page used
+     *  to promise a "defined" term without naming one, which was the weakest version of both. */
+    retreatmentDays: 90,
+    retreatmentDaysSpecialty: 90, // roaches, fleas, bed bugs
     npmaMember: false, // set true if/when joined (audit §11 backlinks)
     nyspmaMember: false,
   },

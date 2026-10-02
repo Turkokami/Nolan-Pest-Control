@@ -46,7 +46,7 @@ export default function AboutPage() {
           />
           <p className="mt-6 text-lg text-brand-900/80">{business.brandLine}</p>
           <p className="mt-4 text-brand-900/75">
-            We&apos;re a family-owned pest control company based in {business.hubCity}, serving homes
+            We&apos;re a family-owned pest control company working across {business.hubCity} and the surrounding counties, serving homes
             across Tompkins, Schuyler, Chemung, Cortland and Tioga counties. We believe in honest
             pricing, doing the job right the first time, and treating your home the way we&apos;d
             treat our own.
@@ -84,7 +84,12 @@ export default function AboutPage() {
                   NYSDEC registration &amp; certification details coming soon.
                 </li>
               )}
-              {business.credentials.insured && <li>Fully insured</li>}
+              {business.credentials.insured && (
+                <li>
+                  Fully insured
+                  {business.credentials.insurer ? ` — ${business.credentials.insurer}` : ""}
+                </li>
+              )}
             </ul>
           </div>
 

@@ -31,7 +31,7 @@ export const countyContent: Record<string, CountyContent> = {
   tompkins: {
     slug: "tompkins",
     intro: [
-      "Tompkins County is home base for Nolan Pest Control. Centered on Ithaca and shaped by Cornell University and Ithaca College, it has one of the highest concentrations of rental housing in upstate New York, wrapped around a core of aging Victorian and pre-war homes. That combination — dense rentals, old housing stock, and a steady churn of students and tenants — makes it the most pest-active market in our service area, and the one we know best.",
+      "Tompkins County is where Nolan Pest Control spends most of its time. Centered on Ithaca and shaped by Cornell University and Ithaca College, it has one of the highest concentrations of rental housing in upstate New York, wrapped around a core of aging Victorian and pre-war homes. That combination — dense rentals, old housing stock, and a steady churn of students and tenants — makes it the most pest-active market in our service area, and the one we know best.",
       "We provide residential and commercial pest control across the whole county, from the student neighborhoods of Collegetown and Cornell Heights to the lakefront homes of Lansing and the rural farmhouses of Dryden, Newfield, and Enfield.",
     ],
     pressure: [
@@ -40,7 +40,7 @@ export const countyContent: Record<string, CountyContent> = {
     ],
     housing: [
       "Tompkins housing runs from pre-war and Victorian homes near downtown and the campuses, to mid-century and newer subdivisions in Lansing and Cayuga Heights, to rural farmhouses on the county's edges. Older homes mean more entry points and more moisture-related pests; rentals mean recurring, documented service and landlord habitability obligations under New York's Real Property Law §235-b.",
-      "As the county where we're based, Tompkins is where our local knowledge runs deepest. We know which Ithaca neighborhoods see the worst bed-bug pressure, why the older homes on the hills get carpenter ants, and how the fall overwintering invasion moves through the rural towns. That block-by-block familiarity is the practical difference between us and a national outfit dispatching from out of the area: we already know what your house is likely doing before we get there, and we can usually get there today.",
+      "Tompkins is the county we work in most, and it is where our local knowledge runs deepest. We know which Ithaca neighborhoods see the worst bed-bug pressure, why the older homes on the hills get carpenter ants, and how the fall overwintering invasion moves through the rural towns. That block-by-block familiarity is the practical difference between us and a national outfit dispatching from out of the area: we already know what your house is likely doing before we get there, and we can usually get there today.",
     ],
     seasonal:
       "Fall is the pivotal season here: rodents and overwintering pests move indoors, and it's the best time to seal and treat. Spring brings carpenter ants and the student move-out bed-bug spread; summer brings wasps, mosquitoes, and ticks.",
@@ -49,7 +49,7 @@ export const countyContent: Record<string, CountyContent> = {
       { q: "I own rental property near the colleges — can you help?", a: "Absolutely. Off-campus rentals around Cornell and Ithaca College are a core part of our work. We handle bed bugs, roaches, and mice with discreet, coordinated, documented service, and help landlords meet their habitability obligations." },
       { q: "Why are pests such a problem in Ithaca's older homes?", a: "Pre-war and Victorian homes have fieldstone foundations, settling gaps, and moisture-prone wood — ideal for mice, carpenter ants, and overwintering pests. Sealing and seasonal treatment are the answer, and both are very doable." },
       { q: "Do you handle bats and wildlife in Tompkins County?", a: "Yes. Wooded lots and older structures make bats, squirrels, and raccoons common here. We handle humane, legal removal and exclusion, including New York's bat maternity-season rules." },
-      { q: "How fast can you get to my home?", a: "Tompkins County is our home base, so response times here are our fastest. Call us and we'll get you scheduled quickly, with priority for urgent issues like stinging insects or a bat in the house." },
+      { q: "How fast can you get to my home?", a: "Tompkins County is where we work most days, so response times here are our fastest. Call us and we'll get you scheduled quickly, with priority for urgent issues like stinging insects or a bat in the house." },
     ],
   },
 

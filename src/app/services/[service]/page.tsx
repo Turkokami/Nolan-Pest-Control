@@ -24,6 +24,14 @@ export function generateStaticParams() {
   return existingServices.map((s) => ({ service: s.slug }));
 }
 
+const SERVICE_PHOTOS: Record<string, { src: string; alt: string; caption: string }> = {
+  "stinging-insects": {
+    src: "/hornet-nest-removal.jpg",
+    alt: "Matthew Nolan in a full bee suit holding a branch with a large grey bald-faced hornet nest attached, after removing it from a property.",
+    caption: "A bald-faced hornet nest removed intact. Nests like this are built in the open and can hold several hundred workers by late summer.",
+  },
+};
+
 export const dynamicParams = false;
 
 export async function generateMetadata({
@@ -95,6 +103,24 @@ export default async function ServicePage({
               <Button href={formatPhoneHref()} variant="secondary">Call {business.phone}</Button>
             </div>
           </div>
+
+          {/* A real photo of the owner doing this work, where we have one. Only the stinging-insect
+              pages carry one today — a bald-faced hornet nest he removed. Keyed by slug so nothing
+              else silently inherits a photo that does not match the service. */}
+          {SERVICE_PHOTOS[s.slug] && (
+            <figure className="mt-8 overflow-hidden rounded-2xl border border-brand-100">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={SERVICE_PHOTOS[s.slug].src}
+                alt={SERVICE_PHOTOS[s.slug].alt}
+                className="w-full"
+                loading="lazy"
+              />
+              <figcaption className="bg-brand-50 px-4 py-3 text-sm text-brand-900/70">
+                {SERVICE_PHOTOS[s.slug].caption}
+              </figcaption>
+            </figure>
+          )}
 
           {/* Sidebar: pests + expert */}
           <aside className="space-y-4">
