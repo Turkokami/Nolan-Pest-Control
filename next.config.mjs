@@ -38,6 +38,36 @@ const nextConfig = {
       { source: "/stinging-insects", destination: "/services/stinging-insects", permanent: true },
       { source: "/mosquito-tick", destination: "/services/mosquito-tick", permanent: true },
       { source: "/bed-bug", destination: "/services/bed-bug", permanent: true },
+
+      // ---------------------------------------------------------------------
+      // Second pass, 2026-10-02. The first GSC export surfaced legacy URLs the
+      // homepage crawl never exposed — they were reachable on the old site but
+      // not linked from its front page, so the pre-cutover crawl missed them.
+      // All four were still drawing impressions and dead-ending in a 404.
+      // ---------------------------------------------------------------------
+      { source: "/locations", destination: "/service-areas", permanent: true },
+
+      // Wayne County town page from the old site. That county is deliberately
+      // out of scope in this build (owner confirmed Ithaca-area positioning),
+      // so there is no equivalent page — send it to the service-area hub rather
+      // than inventing a destination.
+      { source: "/locations/:town", destination: "/service-areas", permanent: true },
+
+      // Old blog post about ants in Newark NY (Wayne County). Nearest genuine
+      // match is the ant service page.
+      {
+        source: "/blog/ants-in-your-newark-home-nolan-pest-control-has-your-solution",
+        destination: "/services/ant-control",
+        permanent: true,
+      },
+
+      // Earlier slug for the renters-rights guide. We publish the same guide at
+      // a different path.
+      {
+        source: "/guides/landlord-wont-pest-problem-new-york-renters-rights",
+        destination: "/guides/landlord-wont-deal-with-pests-ny-renters-rights",
+        permanent: true,
+      },
     ];
   },
 };
