@@ -59,7 +59,9 @@ export default function TeamPage() {
             <div className="rounded-2xl border border-brand-100 bg-white p-6">
               <h2 className="text-xl font-bold text-brand-900">{business.owner.name}</h2>
               <p className="text-sm font-semibold text-brand-600">{business.owner.role}</p>
-              {business.owner.bio && <p className="mt-3 text-brand-900/80">{business.owner.bio}</p>}
+              {business.owner.bio.map((para, i) => (
+                <p key={i} className="mt-3 text-brand-900/80">{para}</p>
+              ))}
             </div>
           ) : (
             <ExpertBlock />

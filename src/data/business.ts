@@ -104,7 +104,16 @@ export const business = {
     // PENDING — required for Person schema node + About/Team (Defect #9)
     name: "Matthew Nolan", // confirmed by owner 2026-08-25
     role: "Owner & Certified Applicator",
-    bio: "", // STILL PENDING — owner left the bio field blank
+    /**
+     * Written by Matthew Nolan himself and published as he wrote it, 2026-10-02. Deliberately not
+     * rewritten into marketing voice — the plainness is the point, and it is the one thing on this
+     * site a competitor cannot reproduce. Paragraphs, because it is three of them.
+     */
+    bio: [
+      "My name is Matt, and I've been working in the pest control industry for nearly 10 years. After years of gaining hands-on experience and learning the business, I'm proud to now be in my first year operating my own company, Nolan Pest Control.",
+      "Outside of work, I'm a husband and father of two, and family is at the heart of everything I do. I believe strongly in treating people right, doing honest work, and building genuine relationships within the communities we serve.",
+      "For me, Nolan Pest Control isn't just about solving pest problems — it's about becoming a local business that homeowners and businesses know, trust, and feel comfortable calling for years to come.",
+    ] as string[],
     photo: "", // /public path when supplied
   },
 

@@ -56,9 +56,14 @@ export default function AboutPage() {
           <div className="mt-8 rounded-2xl border border-brand-100 bg-brand-50 p-6">
             <h2 className="text-xl font-bold text-brand-900">Licensed &amp; local</h2>
             {hasOwner ? (
-              <p className="mt-2 text-brand-900/80">
-                <strong>{business.owner.name}</strong> — {business.owner.role}. {business.owner.bio}
-              </p>
+              <>
+                <p className="mt-2 text-brand-900/80">
+                  <strong>{business.owner.name}</strong> — {business.owner.role}
+                </p>
+                {business.owner.bio.map((para, i) => (
+                  <p key={i} className="mt-3 text-brand-900/80">{para}</p>
+                ))}
+              </>
             ) : (
               <p className="mt-2 text-sm text-brand-900/60">
                 {/* PENDING: owner name, bio, and photo. See docs/03-PHASE-0-CHECKLIST.md. */}

@@ -109,6 +109,19 @@ export function siteGraph() {
       name: business.owner.name,
       jobTitle: business.owner.role,
       worksFor: { "@id": ORG_ID },
+      // The owner's own words, flattened. This is the E-E-A-T signal the Person node exists for:
+      // a named, described human behind the licence rather than a bare job title.
+      ...(business.owner.bio.length ? { description: business.owner.bio.join(" ") } : {}),
+      ...(business.credentials.applicatorCert
+        ? {
+            hasCredential: {
+              "@type": "EducationalOccupationalCredential",
+              credentialCategory: "NYSDEC Certified Pesticide Applicator",
+              identifier: business.credentials.applicatorCert,
+            },
+          }
+        : {}),
+      knowsAbout: ["Pest control", "Rodent exclusion", "Stinging insect removal", "Wildlife exclusion"],
     });
   }
 
