@@ -133,6 +133,31 @@ export const countyContentDeep: Record<string, CountyDeep> = {
       { q: "Why are fall invaders and rodents such a big deal in rural Tioga?", a: "Because farmland and woods surround most homes, the outdoor rodent and insect reservoirs are always close. Fall brings a strong migration of mice and wildlife indoors and heavy overwintering-insect masses (cluster flies, stink bugs, lady beetles), especially near fields. Well-timed fall exclusion and exterior treatment is the key to staying ahead of it." },
     ],
   },
+
+  // ------------------------------------------------------------------- WAYNE
+  wayne: {
+    knownFor: {
+      title: "What five million apple trees do to a county's pest problems",
+      paragraphs: [
+        "Wayne County is the largest apple-producing county in New York and the third largest in the United States, with roughly 23,700 acres of orchard and on the order of five million apple trees across the plain between the Erie Canal and Lake Ontario. The lake is why: its thermal mass holds spring back so the blossom is not caught by a late frost, and moderates the extremes through the season. That same geography decides the pest work.",
+        "An orchard is a permanent, structured food supply with deep ground cover between the rows, and it supports populations that a field of corn does not. Voles live in that cover year-round and move to the trees when snow gives them cover to work under. Cluster flies develop in the soil beneath it in numbers you do not see in the Finger Lakes counties. And at harvest, acres of ripe fruit draw yellowjackets at exactly the point in the season when their colonies are largest and most aggressive.",
+        "The result is a pest calendar driven by agriculture rather than by housing. In Tompkins County the student move cycle sets the year. Here it is bud, bloom, harvest and snow.",
+      ],
+    },
+    landscape: {
+      title: "Canal villages, orchard farms, and a shoreline that empties every winter",
+      paragraphs: [
+        "Three distinct building stocks sit within twenty miles of each other. The canal corridor — Macedon, Palmyra, Newark, Lyons, Clyde — is 19th-century village housing on fieldstone, built when the Erie Canal was the reason these places existed, and it carries the rodent and moisture problems that go with buildings of that age on low ground near water. The orchard belt is farmhouses with substantial outbuildings, where the barn is usually the reason the house keeps getting mice. The Lake Ontario shore at Sodus Point and Pultneyville is seasonal cottages that stand empty and unheated for six months a year.",
+        "A fourth has appeared more recently at the Macedon end, where Rochester commuters have built subdivisions on ground that was orchard within living memory. Those houses are tight and modern and still get thousands of cluster flies on the south wall every September, because the flies come from the soil rather than the structure.",
+        "This is also the county Nolan Pest Control is physically based in, which makes it the one we reach fastest. For anything urgent — a nest by a door, a bat in a room — that matters more than any other factor.",
+      ],
+    },
+    faqs: [
+      { q: "Is pest control different on a fruit farm than at a house?", a: "Materially, yes. An orchard is a whole site rather than a building: the trees, the ground cover, the storage and packing buildings, and the house all interact. Voles in the row middles become girdled trunks in March, and a barn holding rodents keeps resupplying the house indefinitely. The work is planning where the population actually lives rather than treating where you noticed it." },
+      { q: "Why is Wayne County so much worse for cluster flies than other places I have lived?", a: "Because their larvae are parasites of earthworms and develop in the soil under orchard, pasture and lawn. A county that is mostly fruit ground is close to ideal habitat, so buildings here take far heavier pressure than somewhere with less open ground. It has nothing to do with the age or cleanliness of the house." },
+      { q: "Are you actually local to Wayne County, or do you travel in?", a: "We are based in Lyons. Wayne County is the one we can reach fastest, and the one where we know the difference between a canal village house, an orchard farmhouse and a lakefront cottage without having to ask." },
+    ],
+  },
 };
 
 /** Helper: pull the county deep layer (undefined if not yet deepened). */

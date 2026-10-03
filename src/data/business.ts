@@ -142,7 +142,7 @@ export const business = {
     yearFounded: 2026, // confirmed by owner 2026-08-25
     homesProtected: 0, // STILL PENDING — owner left blank
     yearsInTrade: 9, // Matthew Nolan, years in pest control (NOT the age of the business)
-    countiesServed: 5, // Tompkins, Schuyler, Chemung, Cortland, Tioga (Option A)
+    countiesServed: 6, // Tompkins, Schuyler, Chemung, Cortland, Tioga, Wayne (added 2026-10-03)
     servicesOffered: 8, // Phase 0; grows to 22
   },
 

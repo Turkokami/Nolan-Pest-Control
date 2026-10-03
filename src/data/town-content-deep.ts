@@ -675,6 +675,126 @@ export const townContentDeep: Record<string, TownDeep> = {
       { q: "What does a rural property here actually need in a year?", a: "Realistically three things: an exterior treatment on the sunny walls in late summer, exclusion at the foundation and sill before fall, and the outbuildings kept from holding a population. That covers the large majority of what properties in this area see, and none of it is complicated — it just has to be done ahead of the season." },
     ],
   },
+
+  // ==================================================================== LYONS
+  lyons: {
+    structure: {
+      title: "A canal village built in the 1800s, and our own front door",
+      paragraphs: [
+        "Lyons grew around the Erie Canal and its housing is almost entirely of that era: 19th-century village homes on fieldstone and rubble foundations, timber that has been through a hundred and fifty winters, and a century of utility runs punched through in whatever way suited the decade. Buildings like this do not have one gap a mouse uses. They have dozens, and that is why trapping alone never finishes the job here.",
+        "The village sits low against the water, and the water table shows up as damp basements through spring. That dampness is the condition behind most of what gets called a pest problem in Lyons — softened sill plate and band joist for carpenter ants, and the humidity that centipedes, silverfish and camel crickets need.",
+        "The ground around the village was mint country in the 1800s, when Lyons was the peppermint capital of the world and H.G. Hotchkiss shipped oil from a building that still stands fifteen feet from the canal bank. It is farm ground still, and that is where the cluster flies come from.",
+      ],
+    },
+    approach: {
+      title: "Where being based here changes the job",
+      paragraphs: [
+        "Response time is the practical difference. The truck is in Lyons, so an urgent call here — a yellowjacket nest beside a door in September, a bat in a bedroom — gets answered faster than anywhere else we work. For most pest problems that is a convenience. For those two it genuinely matters.",
+        "On the buildings themselves, exclusion is the work that pays. A methodical pass around a 19th-century foundation, sill and utility penetrations holds for years once it is done properly, where annual trapping simply manages the same problem forever.",
+        "And for the damp basements, the honest answer is usually drainage and ventilation before pesticide. We will treat what is there, but telling a Lyons homeowner that the recurring problem has a water answer is more use than selling them a recurring treatment.",
+      ],
+    },
+    faqs: [
+      { q: "You are based in Lyons — does that mean faster service here?", a: "Yes, measurably. The truck starts here, so Lyons and the villages around it get our quickest response. That matters most for stinging insects and anything that cannot wait." },
+      { q: "Why does my basement get insects every spring?", a: "Low ground near the canal and a high water table. Centipedes, silverfish and camel crickets are all moisture-driven, so they are really a report on the dampness rather than an infestation in their own right. Address the water and they resolve." },
+    ],
+  },
+
+  // =================================================================== NEWARK
+  newark: {
+    structure: {
+      title: "The county's densest housing, much of it divided",
+      paragraphs: [
+        "Newark is the largest village in Wayne County and the only place in it with genuine village density. Houses in the core stand close enough together that rodent pressure is a property of the street rather than of any one building, and a good share of the older stock has been divided into apartments at some point in the last century.",
+        "That division is what makes Newark different from the rest of the county. Dividing a house adds shared walls, shared plumbing chases and connected utility runs, usually without adding any of the sealing that would stop pests using them. German cockroaches and bed bugs travel those routes, which is why an infestation here behaves like a building problem rather than a tenancy problem.",
+        "The canal-side commercial and former industrial buildings add larger structures with shared service and refuse areas, and those support rodent populations that interior cleaning never reaches.",
+      ],
+    },
+    approach: {
+      title: "Treat the building, not the unit",
+      paragraphs: [
+        "The single most common reason a Newark infestation never quite ends is unit-by-unit treatment. Cockroaches and bed bugs move along shared walls and chases during treatment and come back afterward, so the apartment that was treated is clear for a few weeks and then is not. Connected units need inspecting and handling together.",
+        "For landlords that is also the cheaper arithmetic over a lease cycle, and the documented record of coordinated service is what demonstrates the habitability obligation was met if it is ever questioned.",
+        "For the exterior, refuse handling does most of the rodent work. A building can be immaculate inside and still feed a population from what is behind it.",
+      ],
+    },
+    faqs: [
+      { q: "Why do roaches keep coming back to my apartment?", a: "Almost always because treatment was confined to one unit in a connected building. The population shifts next door during treatment and returns. The units beside, above and below have to be handled at the same time for it to hold." },
+      { q: "Does having cockroaches mean my apartment is dirty?", a: "No. They spread through buildings via shared walls, plumbing chases and utility runs, and they arrive in deliveries, boxes and second-hand appliances. A spotless apartment in a building with an untreated infestation still gets them." },
+    ],
+  },
+
+  // ================================================================== PALMYRA
+  palmyra: {
+    structure: {
+      title: "A small village with a national visitor stream",
+      paragraphs: [
+        "Palmyra receives visitors year-round from across the country, drawn to the church history sites at the edge of the village — the Sacred Grove, Hill Cumorah, the Smith farm and the Grandin Building. For a village of its size that produces a lodging, guest-room and short-term rental sector out of all proportion to the resident population.",
+        "That is the thing worth knowing about pest control here, because any property where different people sleep in rotation carries bed bug exposure that a private house does not. Bed bugs travel in luggage. Exposure is a function of how many parties stay, not of how well the place is kept, and the cleanest inn in the county is as exposed as any other.",
+        "Underneath that, Palmyra is a 19th-century canal village like Newark and Lyons, with the fieldstone foundations, settled sills and damp low ground that produce mice and carpenter ants regardless of who is visiting.",
+      ],
+    },
+    approach: {
+      title: "What a lodging property actually needs",
+      paragraphs: [
+        "Inspection on a schedule that matches turnover, rather than response after a complaint. By the time a guest reports bed bugs the introduction is usually weeks old and has had time to spread beyond the room it started in — and the review is already written.",
+        "Treatment scheduled around occupancy rather than around our convenience, and discretion as a working requirement rather than a courtesy. A property can be handled without a scene where that is what it needs.",
+        "For the residential side of the village, it is the ordinary canal-town work: exclusion on old foundations, moisture attention in basements, and a timed exterior treatment before the late-summer cluster fly invasion arrives off the orchard ground.",
+      ],
+    },
+    faqs: [
+      { q: "We take guests through the visitor season. What is the right inspection interval?", a: "Tie it to turnover rather than the calendar, and inspect at minimum before and after the busiest stretch. Bed bugs arrive with luggage, so a property that hosts more parties carries more exposure regardless of standards. Early detection is the whole game." },
+      { q: "Will treatment disrupt our guests?", a: "It should not. We schedule around occupancy, can work before opening or after close, and arrive discreetly where a property needs that." },
+    ],
+  },
+
+  // ==================================================================== SODUS
+  sodus: {
+    structure: {
+      title: "A town that doubles in summer and empties in October",
+      paragraphs: [
+        "Sodus runs from orchard country up to the Lake Ontario shore, and the shoreline at Sodus Point is the busiest resort spot in Wayne County — cottages around Great Sodus Bay and along the lake, a population that swells every summer and drains again in the fall. That swing is the defining fact about pest work here.",
+        "A building occupied from May to September and standing unheated and unvisited from October to April is the easiest structure in the county for rodents to take over. Nobody is there to notice the first droppings, and six months is ample time for a small intrusion to become an expensive one. Almost all the damage owners discover in April happened in the dead of winter.",
+        "The cottages themselves add difficulty: older construction on modest foundations, built close to the water, and modified repeatedly across decades. The openings are usually at the seams, where an addition or an enclosed porch meets the original structure.",
+      ],
+    },
+    approach: {
+      title: "Close-up is the appointment that matters",
+      paragraphs: [
+        "For a seasonal property the valuable service is in the fall, before the building sits, not in the spring after. Sealing entry points and checking the structure at close-up prevents most of what owners otherwise find at open-up, and it costs a fraction of dealing with a winter's worth of undisturbed occupancy.",
+        "It is also easier work than it sounds. A small older cottage can be sealed properly in less time than a large modern house, because there is less building to go around.",
+        "On the stinging insect side, Sodus Point in late August is exactly where yellowjacket pressure and outdoor living collide. Colonies peak in size just as their natural food runs short, which turns them toward bins, picnics and dockside dining. A nest near a deck or a door is worth dealing with rather than waiting out.",
+      ],
+    },
+    faqs: [
+      { q: "Should I have the cottage looked at in spring or fall?", a: "Fall, at close-up. Spring service is cleanup; fall service is prevention. Sealing before the building sits empty is the single highest-value thing a seasonal owner can do." },
+      { q: "Why are the wasps so bad around the bay in late summer?", a: "Yellowjacket colonies reach their largest size in August and September just as natural food runs short, so workers turn aggressively to human food. It is not that more nests appeared — the ones that were always there are now at maximum size and foraging where people are." },
+    ],
+  },
+
+  // ================================================================== MACEDON
+  macedon: {
+    structure: {
+      title: "New houses on old orchard ground",
+      paragraphs: [
+        "Macedon sits at the western edge of Wayne County, close enough to Rochester that much of its recent housing is commuter-built, and those subdivisions have gone up on ground that was orchard and farmland within living memory. The houses are modern and tight. The ground underneath them has not changed at all.",
+        "That produces the most common surprise we deal with at this end of the county: a homeowner with a ten-year-old house and thousands of cluster flies on the south wall every September, who reasonably assumed a new build would not have an old-house problem. Cluster fly larvae are parasites of earthworms and develop in the soil of surrounding fields and orchards. The construction of the house is close to irrelevant to how many arrive.",
+        "The older part of Macedon is canal village like the rest of the corridor, with the usual 19th-century foundations and the problems that come with them.",
+      ],
+    },
+    approach: {
+      title: "Modern construction helps, but only with the second half",
+      paragraphs: [
+        "A tight new house genuinely has fewer entry points, which means sealing is quicker and more complete than on a canal-village property. What it cannot do is reduce the number of insects arriving at the wall, and once they are into a wall void they are as unreachable in a new house as in an old one.",
+        "So the work here is timing. An exterior application to the sunny south and west elevations in late summer, before they gather, is what changes the outcome. Treating indoors in October reaches almost nothing.",
+        "For the suburban ants that come with this kind of housing — pavement and odorous house ants under slabs, walkways and driveway edges — the colony is outside and the ants on the counter are foragers. Perimeter work and following the trail is what ends it.",
+      ],
+    },
+    faqs: [
+      { q: "My house is new. Why do I have a cluster fly problem?", a: "Because they come from the ground rather than the building. Macedon's newer subdivisions sit on former orchard and farm ground, which is prime habitat. The tight construction helps on entry, but the only thing that reduces the numbers is a timed exterior treatment before they gather in late summer." },
+      { q: "Is it worth sealing a modern house?", a: "Yes, and it goes faster than on an older one. Fewer openings means a more complete job. Pair it with the late-summer exterior work and you have covered most of what this area produces." },
+    ],
+  },
 };
 
 export const getTownDeep = (slug: string): TownDeep | undefined => townContentDeep[slug];

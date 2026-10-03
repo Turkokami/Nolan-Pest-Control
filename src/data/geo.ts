@@ -134,24 +134,40 @@ export const counties: County[] = [
       { slug: "spencer", name: "Spencer", county: "tioga", priorityPhase: 4, localSpecifics: ["rural hamlet"], knownPests: ["mouse", "cluster fly"] },
     ],
   },
-];
-
-/**
- * Wayne County — DEFERRED (audit §8.1 gate). Disconnected island 55–70 mi NW with no service
- * corridor. Held here, excluded from the live site, until the client confirms location.
- * NOTE: Binghamton and Elmira, which the old site wrongly listed under Wayne, are NOT here.
- * (Binghamton is out of footprint; Elmira is correctly in Chemung, above.)
- */
-export const deferredMarkets = {
-  wayne: {
+  {
     slug: "wayne",
     name: "Wayne County",
     seat: "Lyons",
-    towns: ["Newark", "Palmyra", "Sodus", "Macedon", "Williamson", "Clyde", "Wolcott", "Marion", "Pultneyville"],
-    status: "deferred-pending-decision",
-    note: "Near-vacant locally (A+ Pest, 1 review). If retained, gets its own hub cluster + GBP + physical presence (Phase 5).",
+    region: "NY",
+    pestPressure:
+      "Fruit country on the Lake Ontario plain. Orchard voles, cluster flies off 23,000+ acres of apple ground, harvest-season yellowjackets, and seasonal lakefront cottages that sit empty all winter.",
+    housingStock:
+      "19th-century Erie Canal villages, farmhouses on orchard land, lakefront cottages at Sodus Point and Pultneyville, and newer subdivisions on the Macedon edge.",
+    towns: [
+      { slug: "lyons", name: "Lyons", county: "wayne", priorityPhase: 2, localSpecifics: ["county seat", "Erie Canal village", "former peppermint-oil capital"], knownPests: ["mouse", "cluster fly", "carpenter ant"] },
+      { slug: "newark", name: "Newark", county: "wayne", priorityPhase: 2, localSpecifics: ["largest village in the county", "canal-side industrial stock", "dense village housing"], knownPests: ["mouse", "cockroach", "cluster fly"] },
+      { slug: "palmyra", name: "Palmyra", county: "wayne", priorityPhase: 2, localSpecifics: ["year-round visitor traffic to the church history sites", "historic Main Street", "lodging and short-term rentals"], knownPests: ["bed bug", "mouse", "cluster fly"] },
+      { slug: "sodus", name: "Sodus", county: "wayne", priorityPhase: 2, localSpecifics: ["Sodus Point lakefront cottages", "summer population swing", "Great Sodus Bay"], knownPests: ["mouse", "cluster fly", "wasp"] },
+      { slug: "macedon", name: "Macedon", county: "wayne", priorityPhase: 2, localSpecifics: ["Rochester commuter edge", "newer subdivisions on former orchard ground"], knownPests: ["cluster fly", "ant", "mouse"] },
+      { slug: "williamson", name: "Williamson", county: "wayne", priorityPhase: 4, localSpecifics: ["fruit farms", "orchard country"], knownPests: ["vole", "cluster fly", "mouse"] },
+      { slug: "marion", name: "Marion", county: "wayne", priorityPhase: 4, localSpecifics: ["orchard and farm properties"], knownPests: ["vole", "mouse", "cluster fly"] },
+      { slug: "clyde", name: "Clyde", county: "wayne", priorityPhase: 4, localSpecifics: ["Erie Canal village", "older village housing"], knownPests: ["mouse", "cluster fly"] },
+      { slug: "wolcott", name: "Wolcott", county: "wayne", priorityPhase: 4, localSpecifics: ["eastern rural end of the county"], knownPests: ["mouse", "cluster fly"] },
+      { slug: "pultneyville", name: "Pultneyville", county: "wayne", priorityPhase: 4, localSpecifics: ["historic lakeside hamlet", "seasonal shoreline homes"], knownPests: ["mouse", "cluster fly", "wasp"] },
+    ],
   },
-} as const;
+];
+
+/**
+ * Wayne County was held back here through the first build while the owner decided whether to
+ * market it. He confirmed on 2026-10-03 that he wants it, so it is now a full county in `counties`
+ * above. Retained as a note because the reasoning still matters: it is a genuinely separate market
+ * 55-70 miles from Ithaca with no service corridor between them, and the only reason to carry it is
+ * that the business is physically based in Lyons and can reach the local map results there.
+ *
+ * Binghamton and Elmira, which the old site wrongly filed under Wayne, are still NOT here.
+ * (Binghamton is out of footprint; Elmira is correctly in Chemung.)
+ */
 
 // Helpers
 export const allTowns: Town[] = counties.flatMap((c) => c.towns);

@@ -152,6 +152,32 @@ export const countyContent: Record<string, CountyContent> = {
       { q: "Do you serve Waverly on the NY/PA border?", a: "Yes. Waverly and the southern edge of the county are within our service area, with the same full range of residential and commercial pest services." },
     ],
   },
+
+  wayne: {
+    slug: "wayne",
+    intro: [
+      "Wayne County is fruit country, and that single fact shapes nearly everything about pest work here. It is the largest apple-producing county in New York and the third largest in the United States, with roughly 23,700 acres of orchard and something in the order of five million apple trees between the Erie Canal and the Lake Ontario shore. A county that is mostly orchard, farm, canal village and lakefront behaves nothing like the college-town market two counties south.",
+      "Nolan Pest Control is based in Lyons, so this is the county we can reach fastest. We serve homes, farms, orchards and businesses from Macedon in the west through Newark, Lyons and Palmyra along the canal, out to Wolcott in the east, and north to the lakefront at Sodus Point and Pultneyville.",
+    ],
+    pressure: [
+      "Orchards drive the pest calendar here in a way they do not anywhere else in our service area. Voles are the headline problem: they tunnel under snow cover all winter and girdle the bark at the base of young fruit trees, and a fully girdled tree does not recover. Cluster flies develop in the soil beneath orchard and pasture ground and move onto buildings in enormous numbers in late summer. Harvest brings yellowjackets to anything sweet, which in September means the fruit itself, the bins, and the people handling them.",
+      "The villages are a different problem again. Newark, Lyons, Palmyra, Clyde and Macedon are Erie Canal towns built in the 1800s, and that housing comes with fieldstone foundations, settled sills, and low ground near the water. Mice get into those buildings easily and carpenter ants find the damp wood that canal-side ground reliably produces.",
+      "The lakefront adds the third pattern. Sodus Point and Pultneyville swell with summer residents and empty out again, and a cottage that sits unheated and unvisited from October to April is the easiest building in the county for rodents to take over.",
+    ],
+    housing: [
+      "The building stock splits four ways: 19th-century village housing along the canal, farmhouses and outbuildings on orchard land, seasonal cottages on the Lake Ontario shore, and newer subdivisions at the Macedon end where Rochester commuters have built on what used to be fruit ground. Each of those wants a different approach, and treating them the same is how a pest company gets it wrong here.",
+      "Being based in Lyons means Wayne County gets our fastest response times. It also means we know which parts of the county are orchard, which are canal village, and which are lakefront — and that those are three different jobs rather than one.",
+    ],
+    seasonal:
+      "Late summer is the heavy stretch: cluster flies off the orchard ground and yellowjackets at harvest. October and November push rodents indoors. Winter is when voles do their damage under the snow, out of sight until the thaw. Spring reveals it.",
+    faqs: [
+      { q: "Do you serve Wayne County?", a: "Yes, and it is the county we reach fastest — we are based in Lyons. We cover Newark, Palmyra, Sodus and Sodus Point, Macedon, Williamson, Marion, Clyde, Wolcott and Pultneyville, plus the farms and orchards between them." },
+      { q: "Can you help with voles in an orchard or on a fruit farm?", a: "Yes. Voles girdling the bark at the base of young trees under winter snow cover is the damage that matters, and by the time you see it in spring the tree is often already lost. The work is preventative — guards, habitat reduction around the trunks, and baiting ahead of snow." },
+      { q: "Why does my house fill with flies every September?", a: "Cluster flies, and in this county they come off the orchard and pasture ground around you rather than from anything in the house. They gather on warm south and west walls in late summer and work into the wall voids. The treatment is exterior and has to happen before they gather." },
+      { q: "I only use my Sodus Point cottage in the summer. When should it be serviced?", a: "At close-up in the fall, not at open-up in the spring. Most of what owners find in April happened in an empty unheated building over the winter with nobody there to catch it. Sealing before it sits is worth more than any spring treatment." },
+      { q: "Do you handle commercial work for orchards and packing houses?", a: "Yes. Storage and packing buildings bring their own problems — rodents in bulk storage, stored-product pests, and the documentation that comes with handling food. We schedule around harvest rather than through it." },
+    ],
+  },
 };
 
 export const getCountyContent = (slug: string) => countyContent[slug];
@@ -572,6 +598,170 @@ export const townContent: Record<string, TownContent> = {
       { q: "Why do fall pests get into my Spencer home?", a: "The surrounding farmland drives cluster flies, overwintering pests, and mice indoors each fall. A timed exterior barrier and exclusion sealing keep them out." },
     ],
     relatedServices: ["cluster-fly-control", "rodent-control"],
+  },
+
+  lyons: {
+    slug: "lyons",
+    intro: [
+      "Lyons is the Wayne County seat, an Erie Canal village of 19th-century housing, and the village Nolan Pest Control works out of. It is the fastest address in our whole service area for us to reach, and the one where we know the housing stock street by street.",
+    ],
+    local: [
+      "The village grew up on the canal and the building stock shows it. Houses here are largely 19th century, on fieldstone and rubble foundations, with the settled sills and accumulated utility penetrations that a century and a half of weather produces. Mice do not have to work hard to get into a Lyons house, which is why exclusion matters more here than treatment.",
+      "Low ground near the canal keeps basements damp through spring, and damp basements bring the whole moisture-driven group — carpenter ants in softened sill plate and band joist, plus centipedes, silverfish and camel crickets that are really a humidity report rather than an infestation.",
+      "Lyons was the peppermint capital of the world in the 1800s, when H.G. Hotchkiss shipped oil from a building that still stands fifteen feet from the canal bank, and canallers said they could smell the mint before they reached the village. The farm ground that grew it is still farm ground, and that is where the cluster flies come from every August.",
+    ],
+    faqs: [
+      { q: "How fast can you get to a job in Lyons?", a: "Faster than anywhere else we serve — the truck is based here. Lyons and the surrounding villages get our quickest response, which matters most for stinging insects and anything urgent." },
+      { q: "Why is my Lyons basement always damp?", a: "Low ground near the canal and a high water table. That dampness is what brings centipedes, silverfish and camel crickets, and it softens the wood carpenter ants prefer. Drainage and ventilation do more than any treatment here." },
+      { q: "My house is from the 1800s. Can it actually be sealed against mice?", a: "Yes, though it takes a methodical pass rather than one repair. Village housing of that age has many small openings at the foundation, sill and old utility runs instead of one obvious hole. Done properly it holds for years." },
+    ],
+    relatedServices: ["rodent-control", "rodent-exclusion-sealing", "carpenter-ant-control", "cluster-fly-control"],
+  },
+
+  newark: {
+    slug: "newark",
+    intro: [
+      "Newark is the largest village in Wayne County and its densest housing, built along the Erie Canal and shaped by the industry the canal brought. Village-scale density plus 19th-century building stock produces the most concentrated pest pressure in the county.",
+    ],
+    local: [
+      "Houses in the village core stand close together, which means rodent pressure belongs to the street rather than to any one building. A well-sealed house on a Newark block still sits next to whatever the neighbors have not sealed, and the population is shared.",
+      "A good deal of the older stock has been divided into apartments over the years. That matters because cockroaches and bed bugs travel shared walls and utility chases regardless of how any single tenant keeps their unit, and treating one apartment while the ones beside, above and below go untouched relocates the problem rather than ending it.",
+      "The commercial and former industrial buildings along the canal bring their own work: larger structures, shared service areas, and the refuse handling that supports rodent populations no amount of interior cleaning reaches.",
+    ],
+    faqs: [
+      { q: "I treated my apartment and the roaches came back.", a: "In a divided older building the population very likely moved to a neighboring unit during treatment and returned afterward. The units beside, above and below need handling at the same time. If you rent, put the request to your landlord in writing — New York's habitability rules support you." },
+      { q: "Do you work with landlords on multiple Newark properties?", a: "Yes. Coordinated service across a portfolio is both cheaper and more effective than chasing the same infestation from one address to the next, and it gives you documentation to keep on file." },
+    ],
+    relatedServices: ["roach-control", "bed-bug", "rodent-control"],
+  },
+
+  palmyra: {
+    slug: "palmyra",
+    intro: [
+      "Palmyra is a historic canal village that receives visitors year-round from across the country, drawn to the church history sites just outside it. That steady visitor traffic gives the village a lodging and short-term rental sector far larger than its population would suggest, and that changes what pest control here has to handle.",
+    ],
+    local: [
+      "Anywhere people sleep in rotation carries bed bug exposure, because bed bugs travel in luggage rather than arriving from outside. A guest room, inn or short-term rental turning over through the visitor season has an exposure profile a private house simply does not, and it is a function of how many parties stay rather than how clean the property is kept.",
+      "The village itself is 19th-century canal housing — fieldstone foundations, settled sills, damp low ground near the water — with the mouse and carpenter ant pressure that comes with building stock of that age.",
+      "Outside the village it is orchard and farm ground in every direction, which means the late-summer cluster fly invasion arrives here in force and the fall rodent push starts early.",
+    ],
+    faqs: [
+      { q: "I run a guest room or short-term rental in Palmyra. How often should it be inspected?", a: "At a frequency that tracks your turnover through the visitor season. Bed bugs arrive in luggage, so exposure follows how many parties stay rather than how clean the property is. Catching an introduction early is the difference between one room handled quietly and a review that stays up permanently." },
+      { q: "Can you treat without disrupting guests?", a: "Yes. We schedule around occupancy rather than around our own convenience, and we can arrive discreetly where that is what a property needs." },
+    ],
+    relatedServices: ["bed-bug", "rodent-control", "cluster-fly-control"],
+  },
+
+  sodus: {
+    slug: "sodus",
+    intro: [
+      "Sodus runs from farm and orchard country up to the Lake Ontario shore at Sodus Point, the busiest resort spot in Wayne County. The village population swells every summer with cottage owners and visitors around Great Sodus Bay, then empties again — and that swing is the single most useful thing to know about pest work here.",
+    ],
+    local: [
+      "A cottage that is lived in from May to September and stands unheated and unvisited from October to April is the easiest building in the county for rodents to occupy. There is nobody there to notice the first signs, and six months is long enough for a small problem to become a serious one. Most of the damage owners discover in April happened in February.",
+      "Lakefront building stock adds its own difficulties: older cottages on modest foundations, built close to the water, often modified over decades. Seams between original construction and later additions are where the openings usually turn out to be.",
+      "Inland, Sodus is orchard and farm country like the rest of the county, which brings heavy cluster fly pressure onto buildings in late summer and yellowjackets around anything sweet at harvest.",
+    ],
+    faqs: [
+      { q: "My Sodus Point cottage is closed all winter. When should it be serviced?", a: "In the fall, at close-up. Sealing entry points before the building sits empty is worth considerably more than any treatment done in spring, because by April the work is cleanup rather than prevention." },
+      { q: "Why are there so many wasps around the bay in late summer?", a: "Yellowjacket colonies peak in size in August and September just as their natural food runs short, which turns them aggressively toward human food — picnics, bins, outdoor dining. Nearly all stings happen in that window, and a nest near a deck or dock is worth dealing with rather than tolerating." },
+    ],
+    relatedServices: ["rodent-exclusion-sealing", "rodent-control", "stinging-insects", "cluster-fly-control"],
+  },
+
+  macedon: {
+    slug: "macedon",
+    intro: [
+      "Macedon sits at the western edge of Wayne County, close enough to Rochester that a good deal of its newer housing is commuter-built. Those subdivisions have gone up on ground that was orchard and farmland, and the insects that lived on that ground did not leave when the houses arrived.",
+    ],
+    local: [
+      "New homeowners here are regularly surprised to find thousands of cluster flies on a south-facing wall in September, having assumed a modern house would not have an old-house problem. Cluster flies develop in the soil of surrounding fields and orchards rather than in buildings, so a tight new house on former fruit ground sits in prime habitat. The construction helps — fewer entry points — but it does not change what is underneath.",
+      "Suburban housing also brings suburban ants: pavement and odorous house ants nesting under slabs, walkways and driveway edges and foraging indoors, which is why treating the ones on the counter accomplishes so little.",
+      "The older part of Macedon is canal village like the rest of the corridor, with the mouse and moisture pressure that 19th-century building stock produces.",
+    ],
+    faqs: [
+      { q: "My house is only ten years old. Why do I have thousands of flies?", a: "Because cluster flies come from the ground around the house rather than from the house itself. Macedon's newer subdivisions sit on former orchard and farm ground, which is exactly where they develop. A timed exterior treatment on the sunny walls in late summer is what changes it." },
+      { q: "Why do ants keep coming back after I spray the kitchen?", a: "Because the colony is outside — under a slab, walkway or driveway edge — and you are only killing the foragers you can see. Perimeter treatment and following the trail back is what actually ends it." },
+    ],
+    relatedServices: ["cluster-fly-control", "ant-control", "rodent-control"],
+  },
+
+  williamson: {
+    slug: "williamson",
+    intro: [
+      "Williamson is orchard country in the middle of the most productive apple ground in New York State, between the canal corridor and the Lake Ontario shore. Fruit farms set the pest calendar here more than anything else.",
+    ],
+    local: [
+      "Voles are the problem that costs money. They tunnel under snow cover through the winter and girdle the bark at the base of young fruit trees, and a tree girdled all the way round does not recover. The damage is invisible until the thaw, which is why the work is preventative rather than reactive.",
+      "Cluster flies come off the orchard floor in enormous numbers in August and September and move onto the warm side of farmhouses and outbuildings. Harvest brings yellowjackets to the fruit, the bins and the people handling them.",
+      "Farm properties are whole sites rather than single buildings. A barn or storage building holding a rodent population will keep resupplying the house no matter how carefully the house is sealed.",
+    ],
+    faqs: [
+      { q: "Something is stripping the bark off my young apple trees over winter.", a: "Voles, almost certainly. They work under snow cover where nothing can see them, and a fully girdled trunk will not recover. Trunk guards, keeping the ground clear around the base, and baiting ahead of snow are what prevent it — by the time you see the damage the tree is usually lost." },
+      { q: "Do you treat farm outbuildings as well as the house?", a: "Yes, and on a farm property that is usually the point. If the barn or storage building is holding the population, the house will keep getting visitors regardless of how well it is sealed." },
+    ],
+    relatedServices: ["mole-vole-control", "cluster-fly-control", "rodent-control", "stinging-insects"],
+  },
+
+  marion: {
+    slug: "marion",
+    intro: [
+      "Marion is a small farming town in the orchard belt between the canal and the lake, with fruit ground and farm properties in every direction and a compact village core.",
+    ],
+    local: [
+      "The pest year here is agricultural and predictable: voles girdling young trees under winter snow, cluster flies off the orchard ground in August and September, rodents moving toward buildings from October, and yellowjackets around the fruit at harvest.",
+      "Farmhouses and their outbuildings need handling as one site. The barn is very often the reason a well-sealed house still gets mice.",
+    ],
+    faqs: [
+      { q: "What is the single most useful thing for a farm property here?", a: "A timed exterior treatment on the sunny walls in late summer, before cluster flies gather, paired with sealing the house and dealing with whatever is holding a rodent population in the outbuildings. Those two things cover most of what a Marion property sees in a year." },
+    ],
+    relatedServices: ["cluster-fly-control", "mole-vole-control", "rodent-control"],
+  },
+
+  clyde: {
+    slug: "clyde",
+    intro: [
+      "Clyde is an Erie Canal village at the eastern end of the Wayne County corridor, with older village housing and farm country immediately around it.",
+    ],
+    local: [
+      "Village housing here is 19th century, which means fieldstone foundations, settled sills and the many small openings that let mice in every October. Exclusion is detailed work on buildings of this age, and it is what ends the annual cycle rather than managing it.",
+      "Low ground near the canal keeps basements damp, bringing carpenter ants into softened wood and the usual moisture-seeking insects into the basement itself.",
+      "The surrounding farm ground delivers the late-summer cluster fly invasion onto sunny walls.",
+    ],
+    faqs: [
+      { q: "Do you come out as far as Clyde?", a: "Yes. Clyde is a short run from our base in Lyons, so response times here are among our fastest." },
+    ],
+    relatedServices: ["rodent-control", "cluster-fly-control", "carpenter-ant-control"],
+  },
+
+  wolcott: {
+    slug: "wolcott",
+    intro: [
+      "Wolcott sits at the eastern end of Wayne County, rural and agricultural, with farm properties, older village housing and open country toward the lake plain.",
+    ],
+    local: [
+      "The pattern out here is the rural one: heavy cluster fly pressure off the surrounding fields in late summer, rodents moving toward buildings from October, and carpenter ants wherever moisture has softened wood in the older housing.",
+      "Outbuildings matter as much as the house. A barn or shed supporting a rodent population will keep the house supplied no matter how well the house itself is sealed.",
+    ],
+    faqs: [
+      { q: "Is it worth treating for cluster flies if we are surrounded by farmland?", a: "Yes, and the difference is substantial. Next to open ground you will not get to zero, and anyone promising that is overselling — but a timed exterior treatment on the sunny walls before they gather is the difference between a normal house and an unlivable one in September." },
+    ],
+    relatedServices: ["cluster-fly-control", "rodent-control", "carpenter-ant-control"],
+  },
+
+  pultneyville: {
+    slug: "pultneyville",
+    intro: [
+      "Pultneyville is a small historic hamlet on the Lake Ontario shore, with 19th-century houses, seasonal shoreline homes and orchard ground immediately inland.",
+    ],
+    local: [
+      "Seasonal occupancy is the defining feature. A shoreline house that stands unheated and unvisited from October to April is an open invitation to rodents, and nobody is there to catch the first signs. Sealing before the building sits empty is worth far more than anything done in spring.",
+      "The historic housing brings the usual problems of age — fieldstone foundations, settled sills, modifications layered over a century — and the orchard ground inland delivers cluster flies onto the sunny walls each August.",
+    ],
+    faqs: [
+      { q: "Our shoreline place is empty most of the year. What should we do?", a: "Have it sealed and checked at close-up in the fall. Most of the damage seasonal owners find in spring happened over the winter in an empty building. Prevention before it sits beats treatment after." },
+    ],
+    relatedServices: ["rodent-exclusion-sealing", "rodent-control", "cluster-fly-control"],
   },
 };
 
