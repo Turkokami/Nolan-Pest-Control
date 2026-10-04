@@ -36,9 +36,11 @@ export default function ServiceAreasPage() {
         <div className="max-w-prose">
           <h1 className="text-4xl font-extrabold text-brand-900">Where We Serve</h1>
           <p className="mt-4 text-lg text-brand-900/80">
-            Based in {business.hubCity}, {business.name} covers a {business.serviceRadiusMiles}-mile
-            radius of Central New York and the Finger Lakes — five counties and growing. Dedicated
-            county and town pages are rolling out; here&apos;s our current coverage.
+            {business.name} works across {business.stats.countiesServed} counties of Central New York,
+            the Finger Lakes and the Lake Ontario fruit belt, within about a{" "}
+            {business.serviceRadiusMiles}-mile radius. Every county and town below has its own page,
+            written for that place rather than filled in from a template — what the housing is built
+            like there, what shows up and when, and what actually resolves it.
           </p>
         </div>
 

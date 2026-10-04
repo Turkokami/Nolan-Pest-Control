@@ -14,8 +14,9 @@ export function ServiceAreaModule() {
       <div className="max-w-prose">
         <h2 className="text-3xl font-bold text-cream-50">Where We Serve</h2>
         <p className="mt-2 text-cream-200/85">
-          Based in {business.hubCity}, we serve homes across a {business.serviceRadiusMiles}-mile
-          radius of Central New York and the Finger Lakes.
+          We serve homes across {business.stats.countiesServed} counties of Central New York, the Finger
+          Lakes and the Lake Ontario fruit belt, within about a {business.serviceRadiusMiles}-mile
+          radius.
         </p>
       </div>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -874,7 +874,7 @@ export const pestContentDeep: Record<string, PestDeep> = {
     ],
     "Flying squirrels in Central New York",
     [
-      "Flying squirrels are far more common in this region than most people realize, precisely because they are nocturnal and rarely seen. Wooded properties with mature trees close to the house — Forest Home, the gorge edges, Cayuga Heights, and rural wooded parcels throughout the five counties — host them regularly.",
+      "Flying squirrels are far more common in this region than most people realize, precisely because they are nocturnal and rarely seen. Wooded properties with mature trees close to the house — Forest Home, the gorge edges, Cayuga Heights, and rural wooded parcels across the counties we cover — host them regularly.",
       "Because they are colonial, an attic occupancy often involves several animals rather than one, and because they are small they exploit openings a gray squirrel could not use. That makes a thorough inspection more important than usual: sealing the obvious hole while missing three smaller ones accomplishes nothing.",
     ],
     [

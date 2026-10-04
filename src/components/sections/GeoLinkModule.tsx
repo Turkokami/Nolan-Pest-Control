@@ -15,8 +15,8 @@ export function GeoLinkModule({ serviceName }: { serviceName: string }) {
         {serviceName} across Central New York
       </h2>
       <p className="mt-2 text-brand-900/75">
-        Based in {business.hubCity}, we provide {serviceName.toLowerCase()} throughout the Finger
-        Lakes and Central New York — five counties and the towns within them:
+        We provide {serviceName.toLowerCase()} across {business.stats.countiesServed} counties of Central
+        New York, the Finger Lakes and the Lake Ontario fruit belt, and the towns within them:
       </p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {counties.map((c) => (
