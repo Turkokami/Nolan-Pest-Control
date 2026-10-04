@@ -34,7 +34,7 @@ export default function HomePage() {
             <span className="inline-block rounded-full border border-gold-500 px-3 py-1 text-xs font-bold uppercase tracking-wide text-gold-400">
               Locally family owned
             </span>
-            <h2 className="mt-4 text-3xl font-bold text-cream-50">Real people. Real trucks. Real results.</h2>
+            <h2 className="mt-4 text-3xl font-bold text-cream-50">Real people. Real results.</h2>
             <p className="mt-3 text-cream-200/85">
               {business.brandLine} We&apos;re not a franchise or a call center — when you call
               {" "}{business.name}, you reach the family that actually does the work and stands behind
