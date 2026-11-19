@@ -118,7 +118,7 @@ export const business = {
   },
 
   /**
-   * Google reviews — verified from the live profile on 2026-08-26 (kgmid /g/11z6zqcdv_).
+   * Google reviews — verified from the live profile on 2026-11-19 (kgmid /g/11z6zqcdv_).
    *
    * These are DISPLAY FACTS ONLY. We deliberately emit NO Review or AggregateRating schema
    * anywhere on this site. Marking up reviews collected on a third-party platform as our own
@@ -133,8 +133,8 @@ export const business = {
    */
   reviews: {
     googleRating: 5.0,
-    googleCount: 10,
-    confirmedOn: "2026-08-26",
+    googleCount: 20,
+    confirmedOn: "2026-11-19",
   },
 
   // Founding / trust stats — replace filler stat strip (Defect #15) once real numbers exist
