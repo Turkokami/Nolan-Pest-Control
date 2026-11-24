@@ -8,6 +8,7 @@ import { UtilityBar } from "@/components/layout/UtilityBar";
 import { StickyCallCta } from "@/components/layout/StickyCallCta";
 import { JsonLd } from "@/components/schema/JsonLd";
 import { siteGraph } from "@/components/schema/siteSchema";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -31,6 +32,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <StickyCallCta />
+        {/* Vercel Speed Insights (free tier): first-party page-speed readings, cookieless. */}
+        <SpeedInsights />
       </body>
     </html>
   );
